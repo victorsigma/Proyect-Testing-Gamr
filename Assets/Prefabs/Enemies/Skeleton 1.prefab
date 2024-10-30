@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 959638670996646650}
   - component: {fileID: 5166902756037994115}
   - component: {fileID: 7342401779501709752}
+  - component: {fileID: 1633963611883658675}
   m_Layer: 0
   m_Name: Skeleton 1
-  m_TagString: Untagged
+  m_TagString: EnemySmallWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,5 +235,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e10f021774ebbb4d8a267f347e0b1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
+  moveSpeed: 2
   player: {fileID: 2611703680262557593, guid: d838e2a57258b9f48a2b468f102f681e, type: 3}
+--- !u!114 &1633963611883658675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300845188681319978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c025c58e7dc35404f83cbba4791a6f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

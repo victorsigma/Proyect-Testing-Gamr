@@ -25,6 +25,11 @@ public class RandomWalkAI : MonoBehaviour
 
 	void Update()
 	{
+		
+	}
+	
+	void FixedUpdate() 
+	{
 		PlayerDetectorAIBox playerDetector = GetComponent<PlayerDetectorAIBox>();
 
 		if (!playerDetector.PlayerDetected)

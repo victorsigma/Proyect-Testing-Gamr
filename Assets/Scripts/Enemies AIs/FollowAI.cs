@@ -31,6 +31,10 @@ public class FollowIA : MonoBehaviour
 
 	void Update()
 	{
+	}
+	
+	void FixedUpdate() 
+	{
 		PlayerDetectorAIBox playerDetector = GetComponent<PlayerDetectorAIBox>();
 
 		if (playerDetector.PlayerDetected)
@@ -96,8 +100,6 @@ public class FollowIA : MonoBehaviour
 			movement = Vector2.zero; // No hay movimiento si el jugador no es detectado
 			isMoving = false; // Detener el movimiento
 		}
-
-		
 	}
 
 	void UpdateAnimation()

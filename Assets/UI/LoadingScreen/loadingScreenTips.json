@@ -1,0 +1,23 @@
+{
+    "loadingScreenTips": {
+        "inventoryControls": {
+            "controller": {
+                "openCloseInventory": "Pulsa 'Y' para abrir o cerrar el inventario.",
+                "interactSlots": "Pulsa 'X' para interactuar con las casillas del inventario.",
+                "changeSection": "Usa 'LB' o 'RB' para cambiar de sección en el inventario.",
+                "confirmAction": "Pulsa 'A' para confirmar la acción.",
+                "hotbarNavigation": "Usa 'LB' o 'RB' para navegar en la hotbar.",
+                "useItem": "Pulsa 'RT' para usar el ítem seleccionado en la hotbar."
+            },
+            "keyboardMouse": {
+                "openCloseInventory": "Pulsa 'E' para abrir o cerrar el inventario.",
+                "interactSlots": "Pulsa 'F' para interactuar con las casillas del inventario.",
+                "changeSection": "Pulsa 'F' o usa el scroll para cambiar de sección en el inventario.",
+                "confirmAction": "Pulsa 'Espacio' para confirmar la acción.",
+                "hotbarNavigation": "Usa el scroll para navegar en la hotbar.",
+                "switchHotbarSlot": "Pulsa cualquier número del 1 al 4 para cambiar a la casilla correspondiente en la hotbar.",
+                "useItem": "Haz clic izquierdo para usar el ítem seleccionado en la hotbar."
+            }
+        }
+    }
+}

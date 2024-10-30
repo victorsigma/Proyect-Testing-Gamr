@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Water
+  - EnemyBasic
+  - EnemySmallWeapon
+  - EnemyHeavyWapon
+  - Mobile
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -12,7 +17,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Load
   - 
   - 
   - 

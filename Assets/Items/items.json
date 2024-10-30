@@ -1,0 +1,35 @@
+{
+    "items": [
+        {
+            "name": "Sword Soul",
+            "description": "Espada mágica de gran poder",
+            "wepon": {
+                "type": "mele",
+                "damage": 12
+            },
+            "consumable": null,
+            "equipment": null
+        },
+        {
+            "name": "Sword Grass",
+            "description": "Espada mágica de gran poder",
+            "wepon": {
+                "type": "mele",
+                "damage": 7
+            },
+            "consumable": null,
+            "equipment": null
+        },
+        {
+            "name": "Sword Steel",
+            "description": "Recupera una pequeña cantidad de vida",
+            "wepon": null,
+            "consumable": {
+                "healing": 2,
+                "speed": 3,
+                "duration": 10
+            },
+            "equipment": null
+        }
+    ]
+}
