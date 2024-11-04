@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
 	public GameObject loadScreen;
 
 	public GameObject loadTips;
+	
+	public List<Characters> characters;
 
 	void Awake()
 	{
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
 
 		/*if (inventory == null)
 		{
-			inventory = FindObjectOfType<Inventory>();
+			inventory = new Inventory();
 		}*/
 	}
 
@@ -99,6 +101,11 @@ public class GameManager : MonoBehaviour
 			{
 				Debug.Log($"Equipaste el arma: {item.name} con {item.wepon.damage} de daño");
 				// Aquí podrías actualizar el estado de combate del jugador
+				GameObject playerObject = GameObject.FindWithTag("Player");
+				if (playerObject != null)
+				{
+					playerObject.GetComponent<PlayerMeleeAttack>().Attack(item.wepon.damage);
+				}
 				return false;
 			}
 			if (item.equipment.resistance != 0)
@@ -116,41 +123,7 @@ public class GameManager : MonoBehaviour
 		return false;
 	}
 
-	public void LoadScene(String name)
-	{
-		loadTips.GetComponent<TMP_Text>().text = gameObject.GetComponent<TipsManager>().GetRandomTip();
-		StartCoroutine(SetScene(name));
-	}
 
-	public void LoadScene(int index)
-	{
-		loadTips.GetComponent<TMP_Text>().text = gameObject.GetComponent<TipsManager>().GetRandomTip();
-		StartCoroutine(SetScene(index));
-	}
-
-	public IEnumerator SetScene(String name)
-	{
-		AsyncOperation operation = SceneManager.LoadSceneAsync(name);
-
-		while (!operation.isDone)
-		{
-			loadScreen.SetActive(true);
-			yield return null;
-		}
-		loadScreen.SetActive(false);
-	}
-
-	public IEnumerator SetScene(int index)
-	{
-		AsyncOperation operation = SceneManager.LoadSceneAsync(index);
-
-		while (!operation.isDone)
-		{
-			loadScreen.SetActive(true);
-			yield return null;
-		}
-		loadScreen.SetActive(false);
-	}
 
 	void Update()
 	{
@@ -184,5 +157,42 @@ public class GameManager : MonoBehaviour
 	{
 		// Aquí podrías cargar el estado del jugador, inventario, etc.
 		Debug.Log("Juego cargado");
+	}
+	
+	
+		public void LoadScene(String name)
+	{
+		loadTips.GetComponent<TMP_Text>().text = gameObject.GetComponent<TipsManager>().GetRandomTip();
+		StartCoroutine(SetScene(name));
+	}
+
+	public void LoadScene(int index)
+	{
+		loadTips.GetComponent<TMP_Text>().text = gameObject.GetComponent<TipsManager>().GetRandomTip();
+		StartCoroutine(SetScene(index));
+	}
+
+	public IEnumerator SetScene(String name)
+	{
+		AsyncOperation operation = SceneManager.LoadSceneAsync(name);
+
+		while (!operation.isDone)
+		{
+			loadScreen.SetActive(true);
+			yield return null;
+		}
+		loadScreen.SetActive(false);
+	}
+
+	public IEnumerator SetScene(int index)
+	{
+		AsyncOperation operation = SceneManager.LoadSceneAsync(index);
+
+		while (!operation.isDone)
+		{
+			loadScreen.SetActive(true);
+			yield return null;
+		}
+		loadScreen.SetActive(false);
 	}
 }

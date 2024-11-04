@@ -66,8 +66,8 @@ public class PlayerController : MonoBehaviour
 			life = GameManager.instance.playerHealthCurrent;
 			lifeBar.ChangeCurrentLife(life);
 		}
-		
-		if (moveSpeed != GameManager.instance.playerHealthCurrent)
+
+		if (moveSpeed != GameManager.instance.playerSpeedCurrent)
 		{
 			moveSpeed = GameManager.instance.playerSpeedCurrent;
 		}
@@ -75,22 +75,33 @@ public class PlayerController : MonoBehaviour
 
 	public void SetDamage(Vector2 direction, int damage)
 	{
-		isHit = true;
-		Vector2 push = (transform.position - (Vector3)direction).normalized;
-		rb.AddForce(push, ForceMode2D.Impulse);
-
-		// Modifica la vida global desde el GameManager
-		GameManager.instance.ModifyPlayerHealth(-damage);
-		life = GameManager.instance.playerHealthCurrent;
-		lifeBar.ChangeCurrentLife(life);
-
-		if (life <= 0 && !isDead)
+		if (!isHit)
 		{
-			isDead = true;
-			DeadPlayer?.Invoke();
-			gameObject.GetComponent<SpriteRenderer>().enabled = false;
-			gameObject.layer = 0;
+			isHit = true;
+			Vector2 push = (transform.position - (Vector3)direction).normalized;
+			rb.AddForce(push, ForceMode2D.Impulse);
+
+			// Modifica la vida global desde el GameManager
+			GameManager.instance.ModifyPlayerHealth(-damage);
+			life = GameManager.instance.playerHealthCurrent;
+			lifeBar.ChangeCurrentLife(life);
+			if (life <= 0 && !isDead)
+			{
+				isDead = true;
+				DeadPlayer?.Invoke();
+				gameObject.GetComponent<SpriteRenderer>().enabled = false;
+				gameObject.layer = 0;
+			} else 
+			{
+				animator.SetBool("isHit", true);
+			}
 		}
+	}
+	
+	public void SetNotHit() 
+	{
+		isHit = false;
+		animator.SetBool("isHit", false);
 	}
 
 

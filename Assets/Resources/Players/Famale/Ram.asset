@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc597fa6ec3aaf4db47991095437a88, type: 3}
+  m_Name: Ram
+  m_EditorClassIdentifier: 
+  character: {fileID: 1568889097941172419, guid: 459f7fc6132d15743becdbd32d092c19, type: 3}
+  characterImage: {fileID: 4499995508585487678, guid: d3382c8d7588f0b4095967cee0be9248, type: 3}
+  animatorController: {fileID: 9100000, guid: f60b540b1c8ee2b439f58725a2260cb1, type: 2}
+  characterName: Ram

@@ -31,9 +31,18 @@ public class FollowIA : MonoBehaviour
 
 	void Update()
 	{
+		GameObject playerObject = GameObject.FindWithTag("Player");
+		if (playerObject != null)
+		{
+			player = playerObject.transform;
+		}
+		else
+		{
+			Debug.LogWarning("No se encontró un objeto con el tag 'Player'");
+		}
 	}
-	
-	void FixedUpdate() 
+
+	void FixedUpdate()
 	{
 		PlayerDetectorAIBox playerDetector = GetComponent<PlayerDetectorAIBox>();
 

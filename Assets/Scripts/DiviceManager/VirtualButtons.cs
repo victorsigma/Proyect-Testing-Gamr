@@ -16,7 +16,7 @@ public class VirtualButtons : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log(GameGlobals.lastInput);
+		//Debug.Log(GameGlobals.lastInput);
 		if (GameGlobals.lastInput == "touch")
 		{
 			canvasGroup.alpha =  1;

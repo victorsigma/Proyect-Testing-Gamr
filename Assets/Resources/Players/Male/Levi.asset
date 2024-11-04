@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc597fa6ec3aaf4db47991095437a88, type: 3}
+  m_Name: Levi
+  m_EditorClassIdentifier: 
+  character: {fileID: 1568889097941172419, guid: 0ae71c579e13e6046b401c9d03509634, type: 3}
+  characterImage: {fileID: -5913593182753334497, guid: edf4c33a91dc8e844929b0422e4e60e6, type: 3}
+  animatorController: {fileID: 9100000, guid: d9e6ae572639a9c4897d7851fb0b9647, type: 2}
+  characterName: Levi

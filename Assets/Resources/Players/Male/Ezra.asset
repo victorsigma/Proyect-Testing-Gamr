@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc597fa6ec3aaf4db47991095437a88, type: 3}
+  m_Name: Ezra
+  m_EditorClassIdentifier: 
+  character: {fileID: 1568889097941172419, guid: f742b7c3163cb3848b6587c26683c3bd, type: 3}
+  characterImage: {fileID: -5913593182753334497, guid: edf4c33a91dc8e844929b0422e4e60e6, type: 3}
+  animatorController: {fileID: 9100000, guid: 5bcf8bb938d60b84c9b55878a0a9d43a, type: 2}
+  characterName: Ezra

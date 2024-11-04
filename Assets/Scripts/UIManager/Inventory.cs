@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+
+[System.Serializable]
+public class InventoryData
+{
+	public List<string> itemSpritesInventory; // Almacena los nombres de las sprites en los slots
+	public List<string> itemSpritesEquipment; // Almacena los nombres de las sprites en los slots
+	public int equippedSlot; // Almacena el índice del slot equipado
+}
 
 public class Inventory : MonoBehaviour
 {
 	public List<GameObject> slots = new List<GameObject>();
 	public GameObject inv;
-
 	public bool isActive;
-
 	public GameObject selector;
-
 	public int slot;
-
 	public List<GameObject> equipments = new List<GameObject>();
 	public int equipmentSlot;
 
@@ -25,8 +31,6 @@ public class Inventory : MonoBehaviour
 
 	[SerializeField]
 	private Sprite emptySlot;
-
-
 	public List<Color> selectionColors;
 	public GameObject optionsInventory;
 	public List<GameObject> selectionsInventory;
@@ -51,21 +55,134 @@ public class Inventory : MonoBehaviour
 	public bool rightClick;
 	private float previousRightTriggerValue = 0.0f;
 
+	public GameObject hand;
+	private string saveFilePath;
+
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.CompareTag("Item"))
 		{
+			Sprite sprite = collider.GetComponent<SpriteRenderer>().sprite;
+			Destroy(collider.gameObject);
 			for (int i = 0; i < slots.Count; i++)
 			{
 				if (IsEmpty(slots[i].GetComponent<Image>()))
 				{
-					slots[i].GetComponent<Image>().sprite = collider.GetComponent<SpriteRenderer>().sprite;
+					slots[i].GetComponent<Image>().sprite = sprite;
 					//slots[i].GetComponent<Image>().sprite.name = collider.GetComponent<SpriteRenderer>().sprite.name;
-					Destroy(collider.gameObject);
 					break;
 				}
 			}
 		}
+	}
+
+	public void SaveInventory()
+	{
+		InventoryData data = new InventoryData();
+		data.itemSpritesInventory = new List<string>();
+		data.itemSpritesEquipment = new List<string>();
+
+		// Guarda los sprites de los slots
+		foreach (var slot in slots)
+		{
+			var sprite = slot.GetComponent<Image>().sprite;
+			if (sprite.name.Split(" ").Length > 1)
+			{
+				if (sprite != null && sprite.name != "Empty")
+				{
+					string firstWord = sprite.name.Split(' ')[0];
+					data.itemSpritesInventory.Add("Items/" + firstWord + "s/" + sprite.name);
+				}
+				else
+				{
+					data.itemSpritesInventory.Add("Items/Empty");
+				}
+			} else 
+			{
+				if (sprite != null && sprite.name != "Empty")
+				{
+					data.itemSpritesInventory.Add("Items/" + sprite.name);
+				}
+				else
+				{
+					data.itemSpritesInventory.Add("Items/Empty");
+				}
+			}
+		}
+
+		foreach (var slot in equipments)
+		{
+			var sprite = slot.GetComponent<Image>().sprite;
+			if (sprite != null && sprite.name != "Empty")
+			{
+				string firstWord = sprite.name.Split(' ')[0];
+				data.itemSpritesEquipment.Add("Items/" + firstWord + "s/" + sprite.name);
+			}
+			else
+			{
+				data.itemSpritesEquipment.Add("Items/Empty");
+			}
+		}
+
+		// Guarda el slot equipado
+		data.equippedSlot = equipmentSlot;
+
+		// Serializa a JSON
+		string json = JsonUtility.ToJson(data);
+		File.WriteAllText(saveFilePath, json);
+		Debug.Log("Inventario guardado en: " + saveFilePath);
+	}
+
+	public void LoadInventory()
+	{
+		if (File.Exists(saveFilePath))
+		{
+			string json = File.ReadAllText(saveFilePath);
+			InventoryData data = JsonUtility.FromJson<InventoryData>(json);
+
+			// Carga los sprites de los slots
+			for (int i = 0; i < slots.Count; i++)
+			{
+				if (data.itemSpritesInventory[i] != "Empty")
+				{
+					// Cargar el sprite por su nombre
+					Sprite loadedSprite = Resources.Load<Sprite>(data.itemSpritesInventory[i]);
+					slots[i].GetComponent<Image>().sprite = loadedSprite;
+				}
+				else
+				{
+					slots[i].GetComponent<Image>().sprite = emptySlot;
+				}
+			}
+
+			// Carga los sprites de los slots
+			for (int i = 0; i < equipments.Count; i++)
+			{
+				if (data.itemSpritesEquipment[i] != "Empty")
+				{
+					// Cargar el sprite por su nombre
+					Sprite loadedSprite = Resources.Load<Sprite>(data.itemSpritesEquipment[i]);
+					equipments[i].GetComponent<Image>().sprite = loadedSprite;
+				}
+				else
+				{
+					equipments[i].GetComponent<Image>().sprite = emptySlot;
+				}
+			}
+
+			// Carga el slot equipado
+			equipmentSlot = data.equippedSlot;
+			Debug.Log("Inventario cargado desde: " + saveFilePath);
+		}
+		else
+		{
+			Debug.LogWarning("No se encontró el archivo de inventario.");
+		}
+	}
+
+	private void OnApplicationQuit()
+	{
+		SaveInventory(); // Guarda el inventario al salir
 	}
 
 	bool IsEmpty(Image image)
@@ -254,6 +371,56 @@ public class Inventory : MonoBehaviour
 				isOptionsInventory = false;
 				break;
 			case 1:
+				GameObject prefab;
+				var sprite = slots[slot].GetComponent<Image>().sprite;
+				string firstWord = sprite.name.Split(' ')[0];
+
+				if (sprite.name.Split(" ").Length > 1)
+				{
+					string prefabPath = "Prefabs/Items/" + firstWord + "s/" + sprite.name;
+
+					prefab = Resources.Load<GameObject>(prefabPath);
+
+					if (prefab != null)
+					{
+						// Instancia el prefab en la escena
+						Vector3 spawn = gameObject.transform.position;
+
+						spawn.x += 0.5f;
+
+						slots[slot].GetComponent<Image>().sprite = emptySlot;
+						Instantiate(prefab, spawn, Quaternion.identity);
+						isOptionsInventory = false;
+					}
+					else
+					{
+						Debug.LogError("No se pudo cargar el prefab.");
+						isOptionsInventory = false;
+					}
+				}
+				else
+				{
+					string prefabPath = "Prefabs/Items/" + sprite.name;
+
+					prefab = Resources.Load<GameObject>(prefabPath);
+
+					if (prefab != null)
+					{
+						// Instancia el prefab en la escena
+						Vector3 spawn = gameObject.transform.position;
+
+						spawn.x += 0.5f;
+
+						slots[slot].GetComponent<Image>().sprite = emptySlot;
+						Instantiate(prefab, spawn, Quaternion.identity);
+						isOptionsInventory = false;
+					}
+					else
+					{
+						Debug.LogError("No se pudo cargar el prefab.");
+						isOptionsInventory = false;
+					}
+				}
 				break;
 		}
 	}
@@ -327,7 +494,57 @@ public class Inventory : MonoBehaviour
 				isOptionsEquipament = false;
 				break;
 			case 1:
+				GameObject prefab;
+				var sprite = equipments[equipmentSlot].GetComponent<Image>().sprite;
+				string firstWord = sprite.name.Split(' ')[0];
+				if (sprite.name.Split(" ").Length > 1)
+				{
+					string prefabPath = "Prefabs/Items/" + firstWord + "s/" + sprite.name;
+
+					prefab = Resources.Load<GameObject>(prefabPath);
+
+					if (prefab != null)
+					{
+						// Instancia el prefab en la escena
+						Vector3 spawn = gameObject.transform.position;
+
+						spawn.x += 0.5f;
+
+						equipments[equipmentSlot].GetComponent<Image>().sprite = emptySlot;
+						Instantiate(prefab, spawn, Quaternion.identity);
+						isOptionsEquipament = false;
+					}
+					else
+					{
+						Debug.LogError("No se pudo cargar el prefab.");
+						isOptionsEquipament = false;
+					}
+				}
+				else
+				{
+					string prefabPath = "Prefabs/Items/" + sprite.name;
+
+					prefab = Resources.Load<GameObject>(prefabPath);
+
+					if (prefab != null)
+					{
+						// Instancia el prefab en la escena
+						Vector3 spawn = gameObject.transform.position;
+
+						spawn.x += 0.5f;
+
+						equipments[equipmentSlot].GetComponent<Image>().sprite = emptySlot;
+						Instantiate(prefab, spawn, Quaternion.identity);
+						isOptionsEquipament = false;
+					}
+					else
+					{
+						Debug.LogError("No se pudo cargar el prefab.");
+						isOptionsEquipament = false;
+					}
+				}
 				break;
+
 		}
 	}
 
@@ -490,7 +707,7 @@ public class Inventory : MonoBehaviour
 		// Actualizar el estado anterior del Right Trigger para usarlo en el próximo frame
 		previousRightTriggerValue = rightTriggerValue;
 
-
+		hand.GetComponent<SpriteRenderer>().sprite = equipments[selectionEquipmentBar].GetComponent<Image>().sprite;
 		if (GameGlobals.lastInput != "touch")
 		{
 			if (Input.GetButtonDown("FireButton") || rightTriggerPulse)
@@ -502,10 +719,13 @@ public class Inventory : MonoBehaviour
 
 	public void UseItem()
 	{
+		hand.SetActive(true);
+		hand.GetComponent<Animator>().SetTrigger("Attack");
 		if (GameManager.instance.UseItem(equipments[selectionEquipmentBar].GetComponent<Image>().sprite.name))
 		{
 			equipments[selectionEquipmentBar].GetComponent<Image>().sprite = emptySlot;
 		}
+		//hand.SetActive(false);
 	}
 
 	public void SetSelectionEquipamentBar(int selection)
@@ -543,7 +763,8 @@ public class Inventory : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		saveFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
+		LoadInventory(); // Carga el inventario al inicio
 	}
 
 	// Update is called once per frame
@@ -553,6 +774,8 @@ public class Inventory : MonoBehaviour
 		{
 			OpenClose();
 		}
+
+
 
 		if (isActive)
 		{

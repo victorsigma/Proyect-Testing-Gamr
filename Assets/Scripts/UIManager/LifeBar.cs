@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LifeBar : MonoBehaviour
 {
-	private Slider slider;
+	public Slider slider;
 
 	void Start()
 	{

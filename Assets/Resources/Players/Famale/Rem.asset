@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc597fa6ec3aaf4db47991095437a88, type: 3}
+  m_Name: Rem
+  m_EditorClassIdentifier: 
+  character: {fileID: 1568889097941172419, guid: fc9c75cc9b2552f4691e0ebf4b1e1dcd, type: 3}
+  characterImage: {fileID: 4389519321235831900, guid: 80bc3135e2898c848ae816094a6e6a37, type: 3}
+  animatorController: {fileID: 9100000, guid: 6157d7be46d2baf42b7c39f747847700, type: 2}
+  characterName: Rem
