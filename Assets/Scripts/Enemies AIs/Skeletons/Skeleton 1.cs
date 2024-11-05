@@ -16,7 +16,7 @@ public class Skeleton1 : MonoBehaviour
 
 	}
 
-	void OnCollisionEnter2D(Collision2D collision)
+	void OnCollisionStay2D(Collision2D collision)
 	{
 		if(collision.gameObject.CompareTag("Player"))
 		{
