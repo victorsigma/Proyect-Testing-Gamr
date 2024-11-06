@@ -687,6 +687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Tempus
       objectReference: {fileID: 0}
+    - target: {fileID: 1568889097941172419, guid: f224f87b085c8c848a8a1189d8b22388, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1740688388555794598, guid: f224f87b085c8c848a8a1189d8b22388, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.16

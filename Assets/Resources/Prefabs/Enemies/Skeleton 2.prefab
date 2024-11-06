@@ -309,3 +309,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 10
+  lootTable: {fileID: 11400000, guid: 977b4854f2b3cb741b2eb7a82ac01fed, type: 2}

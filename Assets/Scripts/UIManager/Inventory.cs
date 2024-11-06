@@ -48,6 +48,8 @@ public class Inventory : MonoBehaviour
 
 	public GameObject equipmentBarSelector;
 
+	public bool isUseItem = false;
+
 	public int selectionEquipmentBar;
 
 	public List<GameObject> equipmentBarSlots = new List<GameObject>();
@@ -55,26 +57,38 @@ public class Inventory : MonoBehaviour
 	public bool rightClick;
 	private float previousRightTriggerValue = 0.0f;
 
-	public GameObject hand;
+	public GameObject handWeapon;
+	public GameObject handConsumable;
+
 	private string saveFilePath;
 
-	void OnTriggerEnter2D(Collider2D collider)
-	{
-		if (collider.CompareTag("Item"))
-		{
-			Sprite sprite = collider.GetComponent<SpriteRenderer>().sprite;
-			Destroy(collider.gameObject);
-			for (int i = 0; i < slots.Count; i++)
-			{
-				if (IsEmpty(slots[i].GetComponent<Image>()))
-				{
-					slots[i].GetComponent<Image>().sprite = sprite;
-					//slots[i].GetComponent<Image>().sprite.name = collider.GetComponent<SpriteRenderer>().sprite.name;
-					break;
-				}
-			}
-		}
-	}
+void OnTriggerEnter2D(Collider2D collider)
+{
+    if (collider.CompareTag("Item"))
+    {
+        ItemEntity itemEntity = collider.GetComponent<ItemEntity>();
+
+        // Verifica si el ítem ya fue recogido
+        if (itemEntity != null && !itemEntity.isPickedUp)
+        {
+            // Marca el ítem como recogido
+            itemEntity.isPickedUp = true;
+
+            Sprite sprite = collider.GetComponent<SpriteRenderer>().sprite;
+            for (int i = 0; i < slots.Count; i++)
+            {
+                if (IsEmpty(slots[i].GetComponent<Image>()))
+                {
+                    slots[i].GetComponent<Image>().sprite = sprite;
+
+                    // Destruye el ítem después de recogerlo
+                    Destroy(collider.gameObject);
+                    break;
+                }
+            }
+        }
+    }
+}
 
 	public void SaveInventory()
 	{
@@ -97,7 +111,8 @@ public class Inventory : MonoBehaviour
 				{
 					data.itemSpritesInventory.Add("Items/Empty");
 				}
-			} else 
+			}
+			else
 			{
 				if (sprite != null && sprite.name != "Empty")
 				{
@@ -667,7 +682,7 @@ public class Inventory : MonoBehaviour
 			equipmentBarSlots[i].GetComponent<Image>().sprite = equipments[i].GetComponent<Image>().sprite;
 		}
 
-		if (!isActive)
+		if (!isActive && !isUseItem)
 		{
 			if (Input.GetButtonDown("EquipamentBarRight") || scrollInput < 0f)
 			{
@@ -707,7 +722,8 @@ public class Inventory : MonoBehaviour
 		// Actualizar el estado anterior del Right Trigger para usarlo en el próximo frame
 		previousRightTriggerValue = rightTriggerValue;
 
-		hand.GetComponent<SpriteRenderer>().sprite = equipments[selectionEquipmentBar].GetComponent<Image>().sprite;
+		handWeapon.GetComponent<SpriteRenderer>().sprite = equipments[selectionEquipmentBar].GetComponent<Image>().sprite;
+		handConsumable.GetComponent<SpriteRenderer>().sprite = equipments[selectionEquipmentBar].GetComponent<Image>().sprite;
 		if (GameGlobals.lastInput != "touch")
 		{
 			if (Input.GetButtonDown("FireButton") || rightTriggerPulse)
@@ -719,18 +735,30 @@ public class Inventory : MonoBehaviour
 
 	public void UseItem()
 	{
-		hand.SetActive(true);
-		hand.GetComponent<Animator>().SetTrigger("Attack");
 		if (GameManager.instance.UseItem(equipments[selectionEquipmentBar].GetComponent<Image>().sprite.name))
 		{
-			equipments[selectionEquipmentBar].GetComponent<Image>().sprite = emptySlot;
+			handConsumable.SetActive(true);
+			isUseItem = true;
+			handConsumable.GetComponent<Animator>().SetTrigger("Use");
 		}
-		//hand.SetActive(false);
+		else
+		{
+			handWeapon.SetActive(true);
+			handWeapon.GetComponent<Animator>().SetTrigger("Attack");
+		}
+		//handWeapon.SetActive(false);
+	}
+
+	public void DestroyItem()
+	{
+		equipments[selectionEquipmentBar].GetComponent<Image>().sprite = emptySlot;
+		isUseItem = false;
+		handConsumable.SetActive(false);
 	}
 
 	public void SetSelectionEquipamentBar(int selection)
 	{
-		if (GameGlobals.lastInput == "touch")
+		if (GameGlobals.lastInput == "touch" && !isUseItem)
 		{
 			selectionEquipmentBar = selection;
 		}

@@ -263,3 +263,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 10
+  lootTable: {fileID: 11400000, guid: e409c59b0ac27a041a2539d2b3e66d1f, type: 2}
+  minDrops: 1
+  maxDrops: 3

@@ -2,7 +2,7 @@
     "items": [
         {
             "name": "Sword Soul",
-            "description": "Espada mágica de gran poder",
+            "description": "Espada mágica de gran poder, ideal para enfrentamientos cuerpo a cuerpo.",
             "wepon": {
                 "type": "mele",
                 "damage": 12
@@ -12,7 +12,7 @@
         },
         {
             "name": "Sword Grass",
-            "description": "Espada mágica de gran poder",
+            "description": "Espada encantada con una fuerza moderada.",
             "wepon": {
                 "type": "mele",
                 "damage": 7
@@ -22,11 +22,109 @@
         },
         {
             "name": "Sword Steel",
-            "description": "Recupera una pequeña cantidad de vida",
+            "description": "Espada de acero de bajo poder pero fiable.",
+            "wepon": {
+                "type": "mele",
+                "damage": 4
+            },
+            "consumable": null,
+            "equipment": null
+        },
+        {
+            "name": "Potion Healing I",
+            "description": "Recupera una pequeña cantidad de vida, ideal para situaciones de emergencia.",
             "wepon": null,
             "consumable": {
-                "healing": 2,
+                "healing": 1,
+                "speed": 0,
+                "duration": 0
+            },
+            "equipment": null
+        },
+        {
+            "name": "Potion Healing II",
+            "description": "Recupera una cantidad considerable de vida, útil en combates largos.",
+            "wepon": null,
+            "consumable": {
+                "healing": 3,
+                "speed": 0,
+                "duration": 0
+            },
+            "equipment": null
+        },
+        {
+            "name": "Potion Healing III",
+            "description": "Recupera una gran cantidad de vida, excelente para situaciones críticas.",
+            "wepon": null,
+            "consumable": {
+                "healing": 5,
+                "speed": 0,
+                "duration": 0
+            },
+            "equipment": null
+        },
+        {
+            "name": "Potion Speed I",
+            "description": "Incrementa temporalmente la velocidad, perfecta para evadir ataques.",
+            "wepon": null,
+            "consumable": {
+                "healing": 0,
                 "speed": 3,
+                "duration": 3
+            },
+            "equipment": null
+        },
+        {
+            "name": "Potion Speed II",
+            "description": "Mejora considerablemente la velocidad por un tiempo moderado.",
+            "wepon": null,
+            "consumable": {
+                "healing": 3,
+                "speed": 4,
+                "duration": 4
+            },
+            "equipment": null
+        },
+        {
+            "name": "Potion Speed III",
+            "description": "Otorga una gran mejora en velocidad por un período extendido.",
+            "wepon": null,
+            "consumable": {
+                "healing": 0,
+                "speed": 4,
+                "duration": 10
+            },
+            "equipment": null
+        },
+        {
+            "name": "Potion Swift Renewal I",
+            "description": "Recupera vida y aumenta ligeramente la velocidad por un corto período.",
+            "wepon": null,
+            "consumable": {
+                "healing": 1,
+                "speed": 3,
+                "duration": 3
+            },
+            "equipment": null
+        },
+        {
+            "name": "Potion Swift Renewal II",
+            "description": "Recupera una cantidad moderada de vida y velocidad.",
+            "wepon": null,
+            "consumable": {
+                "healing": 3,
+                "speed": 4,
+                "duration": 4
+            },
+            "equipment": null
+        },
+        {
+            "name": "Potion Swift Renewal III",
+            "description": "Recupera una gran cantidad de vida y otorga velocidad máxima por un tiempo prolongado.",
+            "wepon": null,
+            "consumable": {
+                "healing": 5,
+                "speed": 4,
                 "duration": 10
             },
             "equipment": null
