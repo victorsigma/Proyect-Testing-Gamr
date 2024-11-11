@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 	public GameObject loadScreen;
 
 	public GameObject loadTips;
-	
+
 	public List<Characters> characters;
 
 	void Awake()
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 	public void ModifyPlayerHealth(int amount)
 	{
 		playerHealthCurrent += amount;
-		playerHealthCurrent = Mathf.Clamp(playerHealthCurrent, 0, playerHealthMax); // Asegura que la salud esté entre 0 y 100
+		playerHealthCurrent = Mathf.Clamp(playerHealthCurrent, 0, playerHealthMax); // Asegura que la salud esté entre 0 y playerHealthMax
 		HealthChange?.Invoke();
 	}
 
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 		playerSpeedCurrent += amount;
 		timeRemaining = duration;
 		timerIsRunning = true;
-		playerSpeedCurrent = Mathf.Clamp(playerSpeedCurrent, 0, 10); // Asegura que la salud esté entre 0 y 100
+		playerSpeedCurrent = Mathf.Clamp(playerSpeedCurrent, 0, 10); // Asegura que la velocidad esté entre 0 y 10
 	}
 
 	public void PlayerRebirth()
@@ -94,6 +94,8 @@ public class GameManager : MonoBehaviour
 			{
 				ModifyPlayerHealth(item.consumable.healing);
 				ModifyPlayerSpeed(item.consumable.speed, item.consumable.duration);
+
+				AudioManager.instance.PlaySFX(item.sound);
 				Debug.Log($"Usaste {item.name}. Salud: {playerHealthCurrent}, Velocidad: {playerSpeedCurrent}");
 				return true;
 			}
@@ -105,6 +107,7 @@ public class GameManager : MonoBehaviour
 				if (playerObject != null)
 				{
 					playerObject.GetComponent<PlayerMeleeAttack>().Attack(item.wepon.damage);
+					AudioManager.instance.PlaySFX(item.sound);
 				}
 				return false;
 			}
@@ -158,24 +161,25 @@ public class GameManager : MonoBehaviour
 		// Aquí podrías cargar el estado del jugador, inventario, etc.
 		Debug.Log("Juego cargado");
 	}
-	
-	
-		public void LoadScene(String name)
+
+
+	public void LoadScene(String name)
 	{
 		loadTips.GetComponent<TMP_Text>().text = gameObject.GetComponent<TipsManager>().GetRandomTip();
+		AudioManager.instance.musicSource.Stop();
 		StartCoroutine(SetScene(name));
 	}
 
 	public void LoadScene(int index)
 	{
 		loadTips.GetComponent<TMP_Text>().text = gameObject.GetComponent<TipsManager>().GetRandomTip();
+		AudioManager.instance.musicSource.Stop();
 		StartCoroutine(SetScene(index));
 	}
 
 	public IEnumerator SetScene(String name)
 	{
-		AsyncOperation operation = SceneManager.LoadSceneAsync(name);
-
+		AsyncOperation operation = SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);
 		while (!operation.isDone)
 		{
 			loadScreen.SetActive(true);
@@ -186,8 +190,7 @@ public class GameManager : MonoBehaviour
 
 	public IEnumerator SetScene(int index)
 	{
-		AsyncOperation operation = SceneManager.LoadSceneAsync(index);
-
+		AsyncOperation operation = SceneManager.LoadSceneAsync(index, LoadSceneMode.Single);
 		while (!operation.isDone)
 		{
 			loadScreen.SetActive(true);

@@ -20,6 +20,12 @@ public class CustomizationMenu : MonoBehaviour
 	
 	[SerializeField]
 	private GameObject mainFirstButton;
+	
+	[SerializeField]
+	private GameObject characterSettigs;
+	
+	[SerializeField]
+	private GameObject audioSettigs;
 
 	EventSystem eventSystem;
 
@@ -106,6 +112,8 @@ public class CustomizationMenu : MonoBehaviour
 	{
 		eventSystem.SetSelectedGameObject(mainFirstButton);
 		mainMenu.SetActive(true);
+		characterSettigs.SetActive(true);
+		audioSettigs.SetActive(false);
 		gameObject.SetActive(false);
 	}
 }

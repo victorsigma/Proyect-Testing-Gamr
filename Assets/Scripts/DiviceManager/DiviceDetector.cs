@@ -24,7 +24,7 @@ public class DiviceDetector : MonoBehaviour
 
 		Vector3 stickDirection = new Vector3(rightStickX, rightStickY, 0f);
 
-		if (Input.anyKeyDown)
+		if (Input.anyKeyDown && Input.touchCount == 0)
 		{
 			if (DetectKeyboardInput())
 			{

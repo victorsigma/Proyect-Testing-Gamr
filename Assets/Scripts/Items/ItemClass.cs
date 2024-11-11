@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -30,6 +31,7 @@ public class Item
 	public Weapon wepon = null;
 	public Consumable consumable = null;
 	public Equipment equipment = null;
+	public String sound = "";
 }
 
 [System.Serializable]

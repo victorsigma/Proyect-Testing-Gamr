@@ -8,7 +8,8 @@
                 "damage": 12
             },
             "consumable": null,
-            "equipment": null
+            "equipment": null,
+            "sound": "Sword"
         },
         {
             "name": "Sword Grass",
@@ -18,7 +19,8 @@
                 "damage": 7
             },
             "consumable": null,
-            "equipment": null
+            "equipment": null,
+            "sound": "Sword"
         },
         {
             "name": "Sword Steel",
@@ -28,7 +30,8 @@
                 "damage": 4
             },
             "consumable": null,
-            "equipment": null
+            "equipment": null,
+            "sound": "Sword"
         },
         {
             "name": "Potion Healing I",
@@ -39,7 +42,8 @@
                 "speed": 0,
                 "duration": 0
             },
-            "equipment": null
+            "equipment": null,
+            "sound": "PotionDrinkSmall"
         },
         {
             "name": "Potion Healing II",
@@ -50,7 +54,8 @@
                 "speed": 0,
                 "duration": 0
             },
-            "equipment": null
+            "equipment": null,
+            "sound": "PotionDrinkMedium"
         },
         {
             "name": "Potion Healing III",
@@ -61,7 +66,8 @@
                 "speed": 0,
                 "duration": 0
             },
-            "equipment": null
+            "equipment": null,
+            "sound": "PotionDrinkBig"
         },
         {
             "name": "Potion Speed I",
@@ -72,7 +78,8 @@
                 "speed": 3,
                 "duration": 3
             },
-            "equipment": null
+            "equipment": null,
+            "sound": "PotionDrinkSmall"
         },
         {
             "name": "Potion Speed II",
@@ -83,7 +90,8 @@
                 "speed": 4,
                 "duration": 4
             },
-            "equipment": null
+            "equipment": null,
+            "sound": "PotionDrinkMedium"
         },
         {
             "name": "Potion Speed III",
@@ -94,7 +102,8 @@
                 "speed": 4,
                 "duration": 10
             },
-            "equipment": null
+            "equipment": null,
+            "sound": "PotionDrinkBig"
         },
         {
             "name": "Potion Swift Renewal I",
@@ -105,7 +114,8 @@
                 "speed": 3,
                 "duration": 3
             },
-            "equipment": null
+            "equipment": null,
+            "sound": "PotionDrinkSmall"
         },
         {
             "name": "Potion Swift Renewal II",
@@ -116,7 +126,8 @@
                 "speed": 4,
                 "duration": 4
             },
-            "equipment": null
+            "equipment": null,
+            "sound": "PotionDrinkMedium"
         },
         {
             "name": "Potion Swift Renewal III",
@@ -127,7 +138,8 @@
                 "speed": 4,
                 "duration": 10
             },
-            "equipment": null
+            "equipment": null,
+            "sound": "PotionDrinkBig"
         }
     ]
 }

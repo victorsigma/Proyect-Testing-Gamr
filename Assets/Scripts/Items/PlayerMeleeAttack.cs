@@ -9,8 +9,6 @@ public class PlayerMeleeAttack : MonoBehaviour
 
 	public Transform attackPoint; // El punto desde donde se mide el alcance del ataque
 	public LayerMask enemyLayers; // Capa que indica los objetos que pueden recibir daño (enemigos)
-
-	private float nextAttackTime = 0f; // Tiempo hasta el próximo ataque permitido
 	private Animator animator; // Componente Animator para manejar las animaciones
 
 	void Start()

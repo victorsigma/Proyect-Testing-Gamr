@@ -10,6 +10,9 @@ TagManager:
   - EnemyHeavyWapon
   - Mobile
   - Item
+  - Spawner
+  - Teleport
+  - LevelLoader
   layers:
   - Default
   - TransparentFX

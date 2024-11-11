@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootItems:
   - itemPrefab: {fileID: 2326676448356502355, guid: 8bb2eecefe4e30347a1987644342685e, type: 3}
-    dropChance: 5
+    dropChance: 2
   - itemPrefab: {fileID: 8938483152877380051, guid: 698cc72bdd0f532499a49041ba507f59, type: 3}
-    dropChance: 5
+    dropChance: 2

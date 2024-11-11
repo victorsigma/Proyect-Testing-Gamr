@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc597fa6ec3aaf4db47991095437a88, type: 3}
+  m_Name: La Ley
+  m_EditorClassIdentifier: 
+  character: {fileID: 1568889097941172419, guid: a28cc1d31c4c5684bb69e7b480ff8e43, type: 3}
+  characterImage: {fileID: -3727362305824313442, guid: e1145f3276c88a64595904bda4732372, type: 3}
+  animatorController: {fileID: 9100000, guid: f93dabf669f8af743b516c26ecdb4304, type: 2}
+  characterName: La Ley

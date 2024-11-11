@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootItems:
   - itemPrefab: {fileID: 9042409401566687942, guid: 8f02babaa4109da488e5c6ec1da6eefd, type: 3}
-    dropChance: 1
-  - itemPrefab: {fileID: 9042409401566687942, guid: 8f02babaa4109da488e5c6ec1da6eefd, type: 3}
-    dropChance: 1
+    dropChance: 0.7
+  - itemPrefab: {fileID: 6362323850930204682, guid: a43ffec835859a14085a65d5fc2a451e, type: 3}
+    dropChance: 0.7
+  - itemPrefab: {fileID: 8938483152877380051, guid: 698cc72bdd0f532499a49041ba507f59, type: 3}
+    dropChance: 2
   - itemPrefab: {fileID: 2326676448356502355, guid: 8bb2eecefe4e30347a1987644342685e, type: 3}
-    dropChance: 5
-  - itemPrefab: {fileID: 2326676448356502355, guid: 8bb2eecefe4e30347a1987644342685e, type: 3}
-    dropChance: 5
+    dropChance: 2
   - itemPrefab: {fileID: 2237138930405850757, guid: 220d7f9ae7926c242b0649eee3697a2d, type: 3}
-    dropChance: 1
+    dropChance: 0.5

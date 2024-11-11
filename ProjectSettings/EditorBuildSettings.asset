@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2ee62bf2d787a3e488f6845dd63958a1
   - enabled: 1
+    path: Assets/Scenes/MapTraslation.unity
+    guid: 8301c54c047a4444f9b7afdd70b01436
+  - enabled: 1
     path: Assets/Scenes/LevelTwo.unity
     guid: c090db2aae1013748beba50cc6124b20
+  - enabled: 1
+    path: Assets/Scenes/Test.unity
+    guid: 59a97bd1321bcb342b5256ef4479b968
   m_configObjects: {}

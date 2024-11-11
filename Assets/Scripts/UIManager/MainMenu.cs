@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -16,11 +17,14 @@ public class MainMenu : MonoBehaviour
 	void Start() 
 	{
 		eventSystem = EventSystem.current;
+		AudioManager.instance.PlayMusic("MainMenu");
+		//audioMixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("Music"));
+		//audioMixer.SetFloat("sfxVolume", PlayerPrefs.GetFloat("SFX"));
 	}
 	
 	public void Play() 
 	{
-		GameManager.instance.LoadScene("LevelTwo");
+		GameManager.instance.LoadScene("MapTraslation");
 	}
 	
 	public void Custom() 
