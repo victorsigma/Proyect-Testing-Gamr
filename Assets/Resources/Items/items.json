@@ -38,7 +38,7 @@
             "description": "Recupera una pequeña cantidad de vida, ideal para situaciones de emergencia.",
             "wepon": null,
             "consumable": {
-                "healing": 1,
+                "healing": 2,
                 "speed": 0,
                 "duration": 0
             },
@@ -50,7 +50,7 @@
             "description": "Recupera una cantidad considerable de vida, útil en combates largos.",
             "wepon": null,
             "consumable": {
-                "healing": 3,
+                "healing": 4,
                 "speed": 0,
                 "duration": 0
             },
@@ -62,7 +62,7 @@
             "description": "Recupera una gran cantidad de vida, excelente para situaciones críticas.",
             "wepon": null,
             "consumable": {
-                "healing": 5,
+                "healing": 6,
                 "speed": 0,
                 "duration": 0
             },
@@ -86,7 +86,7 @@
             "description": "Mejora considerablemente la velocidad por un tiempo moderado.",
             "wepon": null,
             "consumable": {
-                "healing": 3,
+                "healing": 0,
                 "speed": 4,
                 "duration": 4
             },
@@ -110,7 +110,7 @@
             "description": "Recupera vida y aumenta ligeramente la velocidad por un corto período.",
             "wepon": null,
             "consumable": {
-                "healing": 1,
+                "healing": 2,
                 "speed": 3,
                 "duration": 3
             },
@@ -122,7 +122,7 @@
             "description": "Recupera una cantidad moderada de vida y velocidad.",
             "wepon": null,
             "consumable": {
-                "healing": 3,
+                "healing": 4,
                 "speed": 4,
                 "duration": 4
             },
@@ -134,7 +134,7 @@
             "description": "Recupera una gran cantidad de vida y otorga velocidad máxima por un tiempo prolongado.",
             "wepon": null,
             "consumable": {
-                "healing": 5,
+                "healing": 6,
                 "speed": 4,
                 "duration": 10
             },

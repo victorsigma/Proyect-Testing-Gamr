@@ -234,6 +234,31 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 	}
+	
+	public void SetDamage(int damage)
+	{
+		if (!isHit)
+		{
+			isHit = true;
+			AudioManager.instance.PlaySFX("DamageMeet");
+
+			// Modifica la vida global desde el GameManager
+			GameManager.instance.ModifyPlayerHealth(-damage);
+			life = GameManager.instance.playerHealthCurrent;
+			lifeBar.ChangeCurrentLife(life);
+			if (life <= 0 && !isDead)
+			{
+				isDead = true;
+				DeadPlayer?.Invoke();
+				gameObject.GetComponent<SpriteRenderer>().enabled = false;
+				gameObject.layer = 0;
+			}
+			else
+			{
+				animator.SetBool("isHit", true);
+			}
+		}
+	}
 
 	public void SetNotHit()
 	{

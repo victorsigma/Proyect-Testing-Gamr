@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 959638670996646650}
   - component: {fileID: 5166902756037994115}
   - component: {fileID: 7342401779501709752}
-  - component: {fileID: 1633963611883658675}
   - component: {fileID: 785420630276917533}
+  - component: {fileID: 6388508438193404824}
   m_Layer: 7
   m_Name: Skeleton 1
   m_TagString: EnemySmallWeapon
@@ -238,18 +238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   player: {fileID: 2611703680262557593, guid: d838e2a57258b9f48a2b468f102f681e, type: 3}
---- !u!114 &1633963611883658675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300845188681319978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c025c58e7dc35404f83cbba4791a6f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &785420630276917533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,5 +253,18 @@ MonoBehaviour:
   life: 10
   lootTable: {fileID: 11400000, guid: e409c59b0ac27a041a2539d2b3e66d1f, type: 2}
   minDrops: 1
-  maxDrops: 1
+  maxDrops: 2
   sound: DamageBone
+--- !u!114 &6388508438193404824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300845188681319978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941981206c0d1774381cc79f60bb040f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2

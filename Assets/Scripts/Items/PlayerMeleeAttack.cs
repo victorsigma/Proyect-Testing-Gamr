@@ -37,6 +37,16 @@ public class PlayerMeleeAttack : MonoBehaviour
 			}
 		}
 	}
+	
+	
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.gameObject.tag == "EnemyBullet")
+		{
+			Destroy(collider);
+		}
+	}
+	
 
 	// Visualización del rango de ataque en la vista de Scene
 	void OnDrawGizmos()
