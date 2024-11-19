@@ -47,4 +47,19 @@ public class LifeBar : MonoBehaviour
 			}
 		}
 	}
+	
+	public void InitLifeBar(int amountLife, int maxLife)
+	{
+		ChangeMaxLife(maxLife);
+		ChangeCurrentLife(amountLife);
+		Transform Amount = transform.Find("Amount");
+		if (Amount != null)
+		{
+			TMP_Text textMeshPro = Amount.GetComponent<TMP_Text>();
+			if (textMeshPro != null)
+			{
+				textMeshPro.text = "" + amountLife;
+			}
+		}
+	}
 }

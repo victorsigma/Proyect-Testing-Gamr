@@ -5,6 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 	public int life = 10;
+	public int maxLife = 10;
+	[SerializeField]
+	private float elapsedTime = 0f;
+	public Transform playerTransform;
+	private bool isHit = false;
 	private Animator animator;
 
 	[SerializeField] private LootTable lootTable;
@@ -13,21 +18,105 @@ public class Enemy : MonoBehaviour
 
 	[SerializeField] private string sound = "DamageMeet";
 
+	[SerializeField] private List<SpawnEvent> spawnEvents;
+
+	[SerializeField] private bool isBoss = false;
+
+	[SerializeField] private GameObject teleportMap;
+
 	void Start()
 	{
 		animator = GetComponent<Animator>();
+		FindPlayer();
+	}
+
+
+	void Update()
+	{
+		if (playerTransform == null)
+		{
+			FindPlayer();
+		}
+		ActiveSpawnEvents();
+	}
+
+	void ActiveSpawnEvents()
+	{
+		foreach (SpawnEvent spawnEvent in spawnEvents)
+		{
+			if (!spawnEvent.CanActivate()) continue;
+
+			float healthPercentage = (float)life / maxLife * 100f;
+			elapsedTime += Time.deltaTime;
+
+			switch (spawnEvent.activationType)
+			{
+				case SpawnActivationType.HealthPercentage:
+					print("Percentage: " + healthPercentage);
+					if (spawnEvent.ShouldActivateByHealth(healthPercentage))
+					{
+						TriggerSpawnEvent(spawnEvent);
+					}
+					break;
+
+				case SpawnActivationType.TimeElapsed:
+					if (spawnEvent.ShouldActivateByTime(elapsedTime))
+					{
+						TriggerSpawnEvent(spawnEvent);
+					}
+					break;
+
+				case SpawnActivationType.OnDamageTaken:
+					if (isHit)
+					{
+						TriggerSpawnEvent(spawnEvent);
+						print("hit");
+					}
+					break;
+
+				case SpawnActivationType.PlayerProximity:
+					if (spawnEvent.ShouldActivateByProximity(transform, playerTransform))
+					{
+						TriggerSpawnEvent(spawnEvent);
+					}
+					break;
+			}
+		}
+	}
+
+	void TriggerSpawnEvent(SpawnEvent spawnEvent)
+	{
+		foreach (var enemyData in spawnEvent.enemiesToSpawn)
+		{
+			for (int i = 0; i < enemyData.amount; i++)
+			{
+				Instantiate(enemyData.enemyPrefab, transform.position, Quaternion.identity);
+			}
+		}
+		spawnEvents.Find(x => x == spawnEvent).MarkAsUsed();
 	}
 
 	public void TakeDamage(int damage)
 	{
 		life -= damage;
-		
+
 		AudioManager.instance.PlaySFX(sound);
-		animator.SetBool("isHit", true);
+		isHit = true;
+		animator.SetBool("isHit", isHit);
+		
+		if(isBoss) 
+		{
+			BossBar bossBar = GetComponent<BossBar>();
+			bossBar.ChangeCurrentLife(life);
+		}
 
 		if (life <= 0)
 		{
 			DropLoot(); // Llama a la función para soltar botín
+			if (isBoss)
+			{
+				Instantiate(teleportMap, gameObject.transform.position, Quaternion.identity);
+			}
 			Destroy(gameObject);
 		}
 	}
@@ -54,6 +143,16 @@ public class Enemy : MonoBehaviour
 
 	public void SetNotHit()
 	{
-		animator.SetBool("isHit", false);
+		isHit = false;
+		animator.SetBool("isHit", isHit);
+	}
+
+	void FindPlayer()
+	{
+		GameObject playerObject = GameObject.FindWithTag("Player");
+		if (playerObject != null)
+		{
+			playerTransform = playerObject.transform;
+		}
 	}
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a353355f5320e45a9ff999b2cd6edc, type: 3}
+  m_Name: Skeleton Boss
+  m_EditorClassIdentifier: 
+  lootItems:
+  - itemPrefab: {fileID: 9042409401566687942, guid: 8f02babaa4109da488e5c6ec1da6eefd, type: 3}
+    dropChance: 60
+  - itemPrefab: {fileID: 6362323850930204682, guid: a43ffec835859a14085a65d5fc2a451e, type: 3}
+    dropChance: 60
+  - itemPrefab: {fileID: 772324070194184069, guid: a73a9b83657798c42a123950c839529a, type: 3}
+    dropChance: 50

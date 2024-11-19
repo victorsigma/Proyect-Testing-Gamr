@@ -62,33 +62,35 @@ public class Inventory : MonoBehaviour
 
 	private string saveFilePath;
 
-void OnTriggerEnter2D(Collider2D collider)
-{
-    if (collider.CompareTag("Item"))
-    {
-        ItemEntity itemEntity = collider.GetComponent<ItemEntity>();
+	private PlayerController playerController;
 
-        // Verifica si el ítem ya fue recogido
-        if (itemEntity != null && !itemEntity.isPickedUp)
-        {
-            // Marca el ítem como recogido
-            itemEntity.isPickedUp = true;
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.CompareTag("Item"))
+		{
+			ItemEntity itemEntity = collider.GetComponent<ItemEntity>();
 
-            Sprite sprite = collider.GetComponent<SpriteRenderer>().sprite;
-            for (int i = 0; i < slots.Count; i++)
-            {
-                if (IsEmpty(slots[i].GetComponent<Image>()))
-                {
-                    slots[i].GetComponent<Image>().sprite = sprite;
+			// Verifica si el ítem ya fue recogido
+			if (itemEntity != null && !itemEntity.isPickedUp)
+			{
+				// Marca el ítem como recogido
+				itemEntity.isPickedUp = true;
 
-                    // Destruye el ítem después de recogerlo
-                    Destroy(collider.gameObject);
-                    break;
-                }
-            }
-        }
-    }
-}
+				Sprite sprite = collider.GetComponent<SpriteRenderer>().sprite;
+				for (int i = 0; i < slots.Count; i++)
+				{
+					if (IsEmpty(slots[i].GetComponent<Image>()))
+					{
+						slots[i].GetComponent<Image>().sprite = sprite;
+
+						// Destruye el ítem después de recogerlo
+						Destroy(collider.gameObject);
+						break;
+					}
+				}
+			}
+		}
+	}
 
 	public void SaveInventory()
 	{
@@ -735,16 +737,19 @@ void OnTriggerEnter2D(Collider2D collider)
 
 	public void UseItem()
 	{
-		if (GameManager.instance.UseItem(equipments[selectionEquipmentBar].GetComponent<Image>().sprite.name))
+		if (!playerController.isDead)
 		{
-			handConsumable.SetActive(true);
-			isUseItem = true;
-			handConsumable.GetComponent<Animator>().SetTrigger("Use");
-		}
-		else
-		{
-			handWeapon.SetActive(true);
-			handWeapon.GetComponent<Animator>().SetTrigger("Attack");
+			if (GameManager.instance.UseItem(equipments[selectionEquipmentBar].GetComponent<Image>().sprite.name))
+			{
+				handConsumable.SetActive(true);
+				isUseItem = true;
+				handConsumable.GetComponent<Animator>().SetTrigger("Use");
+			}
+			else
+			{
+				handWeapon.SetActive(true);
+				handWeapon.GetComponent<Animator>().SetTrigger("Attack");
+			}
 		}
 		//handWeapon.SetActive(false);
 	}
@@ -792,6 +797,7 @@ void OnTriggerEnter2D(Collider2D collider)
 	void Start()
 	{
 		saveFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
+		playerController = GetComponent<PlayerController>();
 		LoadInventory(); // Carga el inventario al inicio
 	}
 

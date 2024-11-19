@@ -54,7 +54,7 @@ public class Shooter : MonoBehaviour
 
 			// Asignar la dirección y velocidad al proyectil
 			Bullet bulletScript = bullet.GetComponent<Bullet>();
-			bulletScript.SetDirection(shootDirection);
+			bulletScript?.SetDirection(shootDirection);
 
 			// Reiniciar el temporizador de disparo
 			shootTimer = shootDelay;

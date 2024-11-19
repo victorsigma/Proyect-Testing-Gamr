@@ -29,7 +29,7 @@ public class MagicBullet : MonoBehaviour
 		{
 			// Calcula la dirección hacia el jugador
 			direction = (player.transform.position - transform.position).normalized;
-			transform.Translate(direction * moveSpeed * Time.deltaTime);
+			transform.Translate(direction * moveSpeed*0.1f * Time.deltaTime);
 		}
 		//transform.Rotate(RotarZHaciaVector(direction));
 
@@ -51,10 +51,12 @@ public class MagicBullet : MonoBehaviour
 			// Destruir el proyectil después de la colisión
 			Destroy(gameObject);
 		}
-		else
+	}
+	
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.gameObject.CompareTag("HandWeapon"))
 		{
-			// Destruir el proyectil si choca con algo que no sea el jugador o un enemigo
-			Debug.Log("hi");
 			Destroy(gameObject);
 		}
 	}

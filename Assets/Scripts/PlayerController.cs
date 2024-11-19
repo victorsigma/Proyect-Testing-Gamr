@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
 
 	private bool isHit = false;
 
-	private bool isDead = false;
+	[HideInInspector]
+	public bool isDead = false;
 
 	public delegate void EventHandler();
 	public event EventHandler DeadPlayer;
@@ -162,11 +163,20 @@ public class PlayerController : MonoBehaviour
 
 	public void UseTeleport()
 	{
-		teleport.GetComponent<Teleport>().TeleportTo();
+		
+		if(teleport.GetComponent<Teleport>() != null) 
+		{
+			teleport.GetComponent<Teleport>().TeleportTo();
+		} else if(teleport.GetComponent<TeleportMap>() != null) 
+		{
+			GetComponent<Inventory>().SaveInventory();
+			teleport.GetComponent<TeleportMap>().TeleportTo();
+		}
 	}
 	
 	public void LoadLevel()
 	{
+		GetComponent<Inventory>().SaveInventory();
 		levelLoader.GetComponent<LevelLoader>().LoadLevel();
 	}
 

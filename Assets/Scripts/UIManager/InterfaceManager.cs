@@ -110,7 +110,6 @@ public class InterfaceManager : MonoBehaviour
 		{
 			GameManager.instance.PlayerRebirth();
 		}
-		GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Inventory>().SaveInventory();
 		GameManager.instance.LoadScene("MainMenu");
 	}
 }

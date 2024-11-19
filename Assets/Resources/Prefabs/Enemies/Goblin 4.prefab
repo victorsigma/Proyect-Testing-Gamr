@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerDetected>k__BackingField: 0
   detectorOrigin: {fileID: 8483113978735622436}
-  detectorSize: {x: 8, y: 8}
+  detectorSize: {x: 8, y: 5.3}
   detectorOriginOffset: {x: 0, y: 0.2}
   detectionDelay: 0.3
   dectectorLayerMask:
@@ -237,10 +237,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 8
+  maxLife: 10
+  elapsedTime: 0
+  playerTransform: {fileID: 0}
   lootTable: {fileID: 11400000, guid: 4aabe590c5e07b449a80c47148646244, type: 2}
   minDrops: 1
   maxDrops: 2
   sound: DamageMeet
+  spawnEvents: []
+  isBoss: 0
+  teleportMap: {fileID: 0}
 --- !u!114 &8140245077283628264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8cd5d28284f2c4a9854523c3844722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3125889970120806582, guid: 91cb543daf8841842a8e33a1bc499b06, type: 3}
-  bulletSpeed: 10
-  shootDelay: 2
+  bulletPrefab: {fileID: 3125889970120806582, guid: bc3d1a6b9a31f144fba8f5efcdffc1e3, type: 3}
+  bulletSpeed: 5
+  shootDelay: 1.5
   shootPosition: {x: 0, y: 0.2, z: 0}
