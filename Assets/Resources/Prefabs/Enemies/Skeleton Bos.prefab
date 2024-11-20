@@ -443,8 +443,8 @@ MonoBehaviour:
   elapsedTime: 0
   playerTransform: {fileID: 0}
   lootTable: {fileID: 11400000, guid: 3c47405bad50bd2429998006e3dff6b4, type: 2}
-  minDrops: 2
-  maxDrops: 3
+  minDrops: 4
+  maxDrops: 5
   sound: DamageBone
   spawnEvents:
   - {fileID: 11400000, guid: e5e4b3df470a68c4e8e52b8f45d4f14d, type: 2}
@@ -478,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeBar: {fileID: 6623520025721770783}
+  lootTable: {fileID: 11400000, guid: 83ad4007470fbf741ab0e19edc3e48b1, type: 2}
 --- !u!1 &3850517662415273342
 GameObject:
   m_ObjectHideFlags: 0

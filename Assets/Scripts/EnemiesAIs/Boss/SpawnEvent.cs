@@ -126,10 +126,10 @@ public class SpawnEvent : ScriptableObject
 		return prefabs;
 	}
 	private void OnEnable()
-    {
-        // Suscribirse al evento de escena cargada
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+	{
+		// Suscribirse al evento de escena cargada
+		SceneManager.sceneLoaded += OnSceneLoaded;
+	}
 	
 	private void OnDisable()
 	{

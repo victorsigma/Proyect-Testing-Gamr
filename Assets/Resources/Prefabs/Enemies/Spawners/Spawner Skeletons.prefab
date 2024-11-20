@@ -125,7 +125,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48136756, y: 0.88000005}
+    oldSize: {x: 0.48, y: 0.88}
     newSize: {x: 0.48, y: 0.88}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -150,7 +150,8 @@ MonoBehaviour:
   swarmerPrefab_2: {fileID: 1300845188681319978, guid: ba6e60d54207b1d42abe94ae83b75751, type: 3}
   swarmerInterval_1: 1.5
   swarmerInterval_2: 1.5
-  maxEnemies: 2
+  maxEnemies_1: 2
+  maxEnemies_2: 2
   spawnRangeX: 2
   spawnRangeY: 2
   offSprite: {fileID: 1332978760, guid: c0b57b5d2ef70814ba5d7dc13ffe387c, type: 3}

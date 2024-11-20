@@ -307,6 +307,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63bb212666d4d0b40b934e4d8d919350, type: 2}
   - {fileID: 11400000, guid: 6f97dd44c2ddb1349afcef20a462968a, type: 2}
   - {fileID: 11400000, guid: 8e599eee68200e142939dd2efbdd8d89, type: 2}
+  - {fileID: 11400000, guid: ed81abe2a81f6944c857f956d3d00e28, type: 2}
   sfxSounnds:
   - {fileID: 11400000, guid: a1b628d8fefd9134ebeafd6f7f142913, type: 2}
   - {fileID: 11400000, guid: 89fb8bbd20fad7c448450ff2bcd1635c, type: 2}

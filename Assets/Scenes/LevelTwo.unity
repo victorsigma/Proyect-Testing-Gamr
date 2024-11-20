@@ -33091,7 +33091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1501186974}
   indicatorPrefab: {fileID: 412504838}
-  indicatorColor: {r: 0, g: 1, b: 0.043780804, a: 1}
+  indicatorColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   indicatorSprite: {fileID: 709202241, guid: b170936beeb964c4f907f997ee492351, type: 3}
   borderOffset: 50
   canvas: {fileID: 1950357246}

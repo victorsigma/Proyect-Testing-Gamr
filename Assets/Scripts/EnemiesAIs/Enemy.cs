@@ -52,7 +52,6 @@ public class Enemy : MonoBehaviour
 			switch (spawnEvent.activationType)
 			{
 				case SpawnActivationType.HealthPercentage:
-					print("Percentage: " + healthPercentage);
 					if (spawnEvent.ShouldActivateByHealth(healthPercentage))
 					{
 						TriggerSpawnEvent(spawnEvent);
@@ -70,7 +69,6 @@ public class Enemy : MonoBehaviour
 					if (isHit)
 					{
 						TriggerSpawnEvent(spawnEvent);
-						print("hit");
 					}
 					break;
 
@@ -94,6 +92,7 @@ public class Enemy : MonoBehaviour
 			}
 		}
 		spawnEvents.Find(x => x == spawnEvent).MarkAsUsed();
+		elapsedTime = 0;
 	}
 
 	public void TakeDamage(int damage)
@@ -116,8 +115,10 @@ public class Enemy : MonoBehaviour
 			if (isBoss)
 			{
 				Instantiate(teleportMap, gameObject.transform.position, Quaternion.identity);
+			} else 
+			{
+				Destroy(gameObject);
 			}
-			Destroy(gameObject);
 		}
 	}
 

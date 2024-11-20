@@ -15,7 +15,9 @@ public class Spawner : MonoBehaviour
 	private float swarmerInterval_2 = 3.5f;
 
 	[SerializeField]
-	private int maxEnemies = 10;
+	private int maxEnemies_1 = 10;
+	[SerializeField]
+	private int maxEnemies_2 = 10;
 	private int currentEnemyCount_1 = 0;
 	private int currentEnemyCount_2 = 0;
 
@@ -68,14 +70,14 @@ public class Spawner : MonoBehaviour
 			lightSpawner.GetComponent<Light2D>().color = enableLight;
 		}
 
-		if (currentEnemyCount_1 != maxEnemies && currentEnemyCount_2 != maxEnemies && !isSpawningActive)
+		if (currentEnemyCount_1 != maxEnemies_1 && currentEnemyCount_2 != maxEnemies_2 && !isSpawningActive)
 		{
 			gameObject.GetComponent<SpriteRenderer>().sprite = offSprite;
 			lightSpawner.GetComponent<Light2D>().color = offLight;
 		}
 
 
-		if (currentEnemyCount_1 == maxEnemies && currentEnemyCount_2 == maxEnemies)
+		if (currentEnemyCount_1 == maxEnemies_1 && currentEnemyCount_2 == maxEnemies_2)
 		{
 			gameObject.GetComponent<SpriteRenderer>().sprite = disableSprite;
 			lightSpawner.GetComponent<Light2D>().color = disableLight;
@@ -115,7 +117,7 @@ public class Spawner : MonoBehaviour
 
 	private IEnumerator SpawnEnemyType1()
 	{
-		while (isSpawningActive && currentEnemyCount_1 < maxEnemies)
+		while (isSpawningActive && currentEnemyCount_1 < maxEnemies_1)
 		{
 			yield return new WaitForSeconds(swarmerInterval_1);
 
@@ -127,7 +129,7 @@ public class Spawner : MonoBehaviour
 
 	private IEnumerator SpawnEnemyType2()
 	{
-		while (isSpawningActive && currentEnemyCount_2 < maxEnemies)
+		while (isSpawningActive && currentEnemyCount_2 < maxEnemies_2)
 		{
 			yield return new WaitForSeconds(swarmerInterval_2);
 

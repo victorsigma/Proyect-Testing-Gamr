@@ -16,7 +16,7 @@
             "description": "Espada encantada con una fuerza moderada.",
             "wepon": {
                 "type": "mele",
-                "damage": 7
+                "damage": 8
             },
             "consumable": null,
             "equipment": null,
@@ -27,7 +27,7 @@
             "description": "Espada de acero de bajo poder pero fiable.",
             "wepon": {
                 "type": "mele",
-                "damage": 4
+                "damage": 5
             },
             "consumable": null,
             "equipment": null,
