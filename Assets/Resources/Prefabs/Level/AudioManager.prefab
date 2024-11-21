@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6090291033019619801
 Transform:
@@ -143,7 +143,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3633405901828007996
 Transform:
@@ -271,7 +271,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &740719878200122924
 Transform:
@@ -314,9 +314,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd49e30b326b3534389138644b56f24d, type: 2}
   - {fileID: 11400000, guid: e2bb16f556c25e742b1959ff7f035760, type: 2}
   - {fileID: 11400000, guid: 8a583e6a7f552b64291132a2ea6b6dec, type: 2}
+  - {fileID: 11400000, guid: 95d3b7cd81f51d748998bea3c00c527a, type: 2}
   - {fileID: 11400000, guid: 8037d952d788a724e84e0d5d5b686e72, type: 2}
   - {fileID: 11400000, guid: adee592bb44b518498081dfaecb8d4e2, type: 2}
   - {fileID: 11400000, guid: 66cdca5b6b91c8e4aba389e3aa08fcc4, type: 2}
+  - {fileID: 11400000, guid: 55f8242fd5e54ca41be440da6246325d, type: 2}
+  - {fileID: 11400000, guid: f9f98c5602538044eaf3ba20fee99cdf, type: 2}
+  - {fileID: 11400000, guid: 1c0f5c6c416315842bd9dfdd51b19e46, type: 2}
+  - {fileID: 11400000, guid: 74ca351c6ba50f94ebcdb0562274c456, type: 2}
   musicSource: {fileID: 4432323065759380825}
   sfxSource: {fileID: 3723945066319610957}
   audioMixer: {fileID: 24100000, guid: 859167d0f32714545b8b4fd45ec7c22e, type: 2}

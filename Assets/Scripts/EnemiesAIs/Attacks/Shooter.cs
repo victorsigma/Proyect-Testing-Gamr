@@ -12,6 +12,9 @@ public class Shooter : MonoBehaviour
 	
 	[SerializeField]
 	private Vector3 shootPosition;
+	
+	[SerializeField]
+	private string shootSound = "Arrow";  // Temporizador para disparar
 
 	void Start()
 	{
@@ -55,6 +58,7 @@ public class Shooter : MonoBehaviour
 			// Asignar la dirección y velocidad al proyectil
 			Bullet bulletScript = bullet.GetComponent<Bullet>();
 			bulletScript?.SetDirection(shootDirection);
+			AudioManager.instance.PlaySFX(shootSound);
 
 			// Reiniciar el temporizador de disparo
 			shootTimer = shootDelay;

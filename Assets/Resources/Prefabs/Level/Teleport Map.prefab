@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7370862344318194866}
   - component: {fileID: 3033467084865421530}
   - component: {fileID: 3581141164433078924}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Teleport Map
   m_TagString: Teleport
   m_Icon: {fileID: 0}
@@ -268,6 +268,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2747918721820172311}
     m_Modifications:
     - target: {fileID: 5495234779902078403, guid: 7d4918fe554c86f4bab5dd01e36edfd6, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495234779902078403, guid: 7d4918fe554c86f4bab5dd01e36edfd6, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -386,6 +390,10 @@ PrefabInstance:
     - target: {fileID: 7415904656861153412, guid: 7d4918fe554c86f4bab5dd01e36edfd6, type: 3}
       propertyPath: m_Name
       value: OffsetRender
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415904656861153412, guid: 7d4918fe554c86f4bab5dd01e36edfd6, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

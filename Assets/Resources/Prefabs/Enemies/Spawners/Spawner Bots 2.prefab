@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8458162924484609198}
   - component: {fileID: 5866731167612641340}
   m_Layer: 0
-  m_Name: Spawner Bots
+  m_Name: Spawner Bots 2
   m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1334506407, guid: c0b57b5d2ef70814ba5d7dc13ffe387c, type: 3}
+  m_Sprite: {fileID: 15278981, guid: f4330329cf1da7c48b823766f04299f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,20 +146,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ede80076ed42a48981fcc467c11f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swarmerPrefab_1: {fileID: 1300845188681319978, guid: 5c1d949a97e7d4f4cadc922ce5d523ee, type: 3}
-  swarmerPrefab_2: {fileID: 1300845188681319978, guid: 5c1d949a97e7d4f4cadc922ce5d523ee, type: 3}
+  swarmerPrefab_1: {fileID: 1300845188681319978, guid: 205c6fa6538f99047a58a8f8a715b511, type: 3}
+  swarmerPrefab_2: {fileID: 1300845188681319978, guid: 2bc9982fce788b84987de1d580eeb0fc, type: 3}
   swarmerInterval_1: 1.5
   swarmerInterval_2: 1.5
-  maxEnemies_1: 1
-  maxEnemies_2: 2
+  maxEnemies_1: 3
+  maxEnemies_2: 3
   spawnRangeX: 2
   spawnRangeY: 2
-  offSprite: {fileID: 1332978760, guid: c0b57b5d2ef70814ba5d7dc13ffe387c, type: 3}
-  offLight: {r: 0.2901961, g: 0.5411765, b: 0.83921576, a: 1}
-  enableSprite: {fileID: 1334506407, guid: c0b57b5d2ef70814ba5d7dc13ffe387c, type: 3}
-  enableLight: {r: 0.45098042, g: 0.68235296, b: 0.16078432, a: 1}
-  disableSprite: {fileID: 1107671780, guid: c0b57b5d2ef70814ba5d7dc13ffe387c, type: 3}
-  disableLight: {r: 0.41176474, g: 0, b: 0, a: 1}
+  offSprite: {fileID: 624681624, guid: f4330329cf1da7c48b823766f04299f6, type: 3}
+  offLight: {r: 0.48235297, g: 0.89019614, b: 0.77647066, a: 1}
+  enableSprite: {fileID: 15278981, guid: f4330329cf1da7c48b823766f04299f6, type: 3}
+  enableLight: {r: 0.9058824, g: 0.6509804, b: 0.6784314, a: 1}
+  disableSprite: {fileID: 2009005303, guid: f4330329cf1da7c48b823766f04299f6, type: 3}
+  disableLight: {r: 0.9058824, g: 0.8431373, b: 0.22352943, a: 1}
   lightSpawner: {fileID: 7236836934446089074}
   detectorLayerMask:
     serializedVersion: 2

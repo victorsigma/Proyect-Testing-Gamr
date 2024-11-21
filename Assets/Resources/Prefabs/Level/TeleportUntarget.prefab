@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2415757590498520588}
   - component: {fileID: 8354370627407448886}
   - component: {fileID: 3033467084865421530}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TeleportUntarget
   m_TagString: Teleport
   m_Icon: {fileID: 0}

@@ -27,8 +27,8 @@ TagManager:
   - Load
   - Enemy
   - EnemyBullet
-  - 
-  - 
+  - HandWeapon
+  - Teleport
   - 
   - 
   - 

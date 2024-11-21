@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 92bc8c044b245f347bb68c69ab708972
+guid: f4330329cf1da7c48b823766f04299f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,11 +106,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 64
+    resizeAlgorithm: 0
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpawnsTrap_0
+      name: SpawnsBots_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea6547a6bdf25cc4ba63cfa15a7f7823
-      internalID: 2014353471
+      spriteID: 35bc7a9207d23864cad01c1aecfbc204
+      internalID: 15278981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpawnsTrap_1
+      name: SpawnsBots_1
       rect:
         serializedVersion: 2
         x: 48
@@ -145,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f03c46afd25038042a0e8a3655c70834
-      internalID: 1336457713
+      spriteID: 4b38c1fb37481ac4fbf03f72cdf66216
+      internalID: 624681624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpawnsTrap_2
+      name: SpawnsBots_2
       rect:
         serializedVersion: 2
         x: 96
@@ -166,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89cee2415970dae45b3bf676b64c1ea8
-      internalID: -1835787737
+      spriteID: cbdcd4f4947256c43a75bc3fd4308ee6
+      internalID: 2009005303
       vertices: []
       indices: 
       edges: []
@@ -183,9 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpawnsTrap_0: 2014353471
-      SpawnsTrap_1: 1336457713
-      SpawnsTrap_2: -1835787737
+      SpawnsBots_0: 15278981
+      SpawnsBots_1: 624681624
+      SpawnsBots_2: 2009005303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

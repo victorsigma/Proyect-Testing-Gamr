@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1334506407, guid: c0b57b5d2ef70814ba5d7dc13ffe387c, type: 3}
+  m_Sprite: {fileID: 2014353471, guid: 92bc8c044b245f347bb68c69ab708972, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,12 +154,12 @@ MonoBehaviour:
   maxEnemies_2: 1
   spawnRangeX: 2
   spawnRangeY: 2
-  offSprite: {fileID: 1332978760, guid: c0b57b5d2ef70814ba5d7dc13ffe387c, type: 3}
-  offLight: {r: 0.2901961, g: 0.5411765, b: 0.83921576, a: 1}
-  enableSprite: {fileID: 1334506407, guid: c0b57b5d2ef70814ba5d7dc13ffe387c, type: 3}
-  enableLight: {r: 0.45098042, g: 0.68235296, b: 0.16078432, a: 1}
-  disableSprite: {fileID: 1107671780, guid: c0b57b5d2ef70814ba5d7dc13ffe387c, type: 3}
-  disableLight: {r: 0.41176474, g: 0, b: 0, a: 1}
+  offSprite: {fileID: 1336457713, guid: 92bc8c044b245f347bb68c69ab708972, type: 3}
+  offLight: {r: 0.5176471, g: 0.4745098, b: 1, a: 1}
+  enableSprite: {fileID: 2014353471, guid: 92bc8c044b245f347bb68c69ab708972, type: 3}
+  enableLight: {r: 0.96862745, g: 0.7137255, b: 0.99607843, a: 1}
+  disableSprite: {fileID: -1835787737, guid: 92bc8c044b245f347bb68c69ab708972, type: 3}
+  disableLight: {r: 1, g: 0.8745098, b: 0.48235294, a: 1}
   lightSpawner: {fileID: 7236836934446089074}
   detectorLayerMask:
     serializedVersion: 2

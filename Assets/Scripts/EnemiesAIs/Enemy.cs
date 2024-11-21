@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
 
 	[SerializeField] private GameObject teleportMap;
 
+	[SerializeField]
+	private int rewardPoints = 1000;
+
 	void Start()
 	{
 		animator = GetComponent<Animator>();
@@ -102,8 +105,8 @@ public class Enemy : MonoBehaviour
 		AudioManager.instance.PlaySFX(sound);
 		isHit = true;
 		animator.SetBool("isHit", isHit);
-		
-		if(isBoss) 
+
+		if (isBoss)
 		{
 			BossBar bossBar = GetComponent<BossBar>();
 			bossBar.ChangeCurrentLife(life);
@@ -112,10 +115,13 @@ public class Enemy : MonoBehaviour
 		if (life <= 0)
 		{
 			DropLoot(); // Llama a la función para soltar botín
+			GameObject playerObject = GameObject.FindWithTag("Player");
+			playerObject?.GetComponent<PlayerController>().AddPoints(rewardPoints);
 			if (isBoss)
 			{
 				Instantiate(teleportMap, gameObject.transform.position, Quaternion.identity);
-			} else 
+			}
+			else
 			{
 				Destroy(gameObject);
 			}

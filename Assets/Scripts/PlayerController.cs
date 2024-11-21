@@ -58,6 +58,9 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField]
 	private GameObject keyTips;
+	public int score = 0;
+	[SerializeField]
+	private GameObject scoreBoard;
 
 	void Start()
 	{
@@ -157,8 +160,18 @@ public class PlayerController : MonoBehaviour
 		{
 			moveSpeed = GameManager.instance.playerSpeedCurrent;
 		}
-
+		scoreBoard.GetComponent<TMP_Text>().text = "Score: "+ score;
 		Interact();
+	}
+	
+	public void AddPoints(int points) 
+	{
+		score += points;
+	}
+	
+	public int GetScore() 
+	{
+		return score;
 	}
 
 	public void UseTeleport()

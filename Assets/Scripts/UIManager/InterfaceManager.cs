@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+
+public class ScoreData
+{
+	public int score;
+}
 
 public class InterfaceManager : MonoBehaviour
 {
@@ -28,9 +34,12 @@ public class InterfaceManager : MonoBehaviour
 
 	private bool isGameOver = false;
 	EventSystem eventSystem;
+	
+	private string saveFilePath;
 
 	void Start()
 	{
+		saveFilePath = Application.persistentDataPath;
 		canvasMobile = mobileInterfase.GetComponent<CanvasGroup>();
 
 		playerController = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerController>();
@@ -110,6 +119,24 @@ public class InterfaceManager : MonoBehaviour
 		{
 			GameManager.instance.PlayerRebirth();
 		}
+		
+		ScoreData data = new();
+		
+		GameObject playerObject = GameObject.FindWithTag("Player");
+
+		int score = playerObject.GetComponent<PlayerController>() == null ? 0 : playerObject.GetComponent<PlayerController>().GetScore();
+		
+		data.score = score;
+
+		// Serializa a JSON
+		string json = JsonUtility.ToJson(data);
+		
+		int indexCharacter = PlayerPrefs.GetInt("CharacterIndex");
+		
+		string filePath = Path.Combine(saveFilePath, GameManager.instance.characters[indexCharacter].name + ".json");
+		
+		File.WriteAllText(filePath, json);
+		Debug.Log("Score guardado en: " + filePath);
 		GameManager.instance.LoadScene("MainMenu");
 	}
 }

@@ -83,6 +83,10 @@ public class Spawner : MonoBehaviour
 			lightSpawner.GetComponent<Light2D>().color = disableLight;
 			isSpawningActive = false;
 			StopAllCoroutines();
+			if (!isSpawningEnd)
+			{
+				AudioManager.instance.PlaySFX("SpawnerOff");
+			}
 			isSpawningEnd = true;
 		}
 	}
@@ -136,11 +140,6 @@ public class Spawner : MonoBehaviour
 			Instantiate(swarmerPrefab_2, new Vector3(transform.position.x + Random.Range(-spawnRangeX, spawnRangeX),
 				transform.position.y + Random.Range(-spawnRangeY, spawnRangeY), 0), Quaternion.identity);
 			currentEnemyCount_2++;
-		}
-		
-		if (!isSpawningEnd)
-		{
-			AudioManager.instance.PlaySFX("SpawnerOff");
 		}
 	}
 
