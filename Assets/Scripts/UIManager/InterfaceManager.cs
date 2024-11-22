@@ -133,10 +133,11 @@ public class InterfaceManager : MonoBehaviour
 		
 		int indexCharacter = PlayerPrefs.GetInt("CharacterIndex");
 		
-		string filePath = Path.Combine(saveFilePath, GameManager.instance.characters[indexCharacter].name + ".json");
+		string filePath = Path.Combine(saveFilePath, GameManager.instance.characters[indexCharacter].name + ".score");
 		
 		File.WriteAllText(filePath, json);
 		Debug.Log("Score guardado en: " + filePath);
+		PlayerPrefs.SetInt("score", 0);
 		GameManager.instance.LoadScene("MainMenu");
 	}
 }

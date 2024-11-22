@@ -31,13 +31,13 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField]
 	public bool isInTeleport = false;
-	
+
 	[SerializeField]
 	public bool isLevelLoader = false;
 
 	[SerializeField]
 	private GameObject teleport;
-	
+
 	[SerializeField]
 	private GameObject levelLoader;
 
@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
 	{
+		score = PlayerPrefs.GetInt("score");
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 		life = GameManager.instance.playerHealthCurrent;
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
 			isInTeleport = false;
 		}
 	}
-	
+
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "LevelLoader")
@@ -160,33 +161,35 @@ public class PlayerController : MonoBehaviour
 		{
 			moveSpeed = GameManager.instance.playerSpeedCurrent;
 		}
-		scoreBoard.GetComponent<TMP_Text>().text = "Score: "+ score;
+		scoreBoard.GetComponent<TMP_Text>().text = "Score: " + score;
 		Interact();
 	}
-	
-	public void AddPoints(int points) 
+
+	public void AddPoints(int points)
 	{
 		score += points;
+		PlayerPrefs.SetInt("score", score);
 	}
-	
-	public int GetScore() 
+
+	public int GetScore()
 	{
 		return score;
 	}
 
 	public void UseTeleport()
 	{
-		
-		if(teleport.GetComponent<Teleport>() != null) 
+
+		if (teleport.GetComponent<Teleport>() != null)
 		{
 			teleport.GetComponent<Teleport>().TeleportTo();
-		} else if(teleport.GetComponent<TeleportMap>() != null) 
+		}
+		else if (teleport.GetComponent<TeleportMap>() != null)
 		{
 			GetComponent<Inventory>().SaveInventory();
 			teleport.GetComponent<TeleportMap>().TeleportTo();
 		}
 	}
-	
+
 	public void LoadLevel()
 	{
 		GetComponent<Inventory>().SaveInventory();
@@ -210,8 +213,8 @@ public class PlayerController : MonoBehaviour
 				UseTeleport();
 			}
 		}
-		
-		if(isLevelLoader) 
+
+		if (isLevelLoader)
 		{
 			if (Input.GetButtonDown("Confirm"))
 			{
@@ -225,7 +228,7 @@ public class PlayerController : MonoBehaviour
 		{
 			UseTeleport();
 		}
-		if(isLevelLoader) 
+		if (isLevelLoader)
 		{
 			LoadLevel();
 		}
@@ -257,7 +260,7 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 	}
-	
+
 	public void SetDamage(int damage)
 	{
 		if (!isHit)

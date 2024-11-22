@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1229b2d516a9b1544b1c45a9c29faea2, type: 3}
+  m_Name: Bombbot Boss 2
+  m_EditorClassIdentifier: 
+  enemiesToSpawn:
+  - enemyPrefab: {fileID: 1300845188681319978, guid: 46f6f0b524b1bb6469137f0be2e8b3a0, type: 3}
+    amount: 1
+  - enemyPrefab: {fileID: 1300845188681319978, guid: 2bc9982fce788b84987de1d580eeb0fc, type: 3}
+    amount: 2
+  - enemyPrefab: {fileID: 1300845188681319978, guid: b3e0be492911dcd4d9e8a5874b3f96b2, type: 3}
+    amount: 1
+  activationType: 1
+  activationHealthPercentage: 50
+  useActivationHealthPercentage: 0
+  timeToActivate: 120
+  activateOnDamageTaken: 0
+  activationDistance: 5
+  isUsed: 0
+  allowMultipleActivations: 1
+  customConditionDescription: 

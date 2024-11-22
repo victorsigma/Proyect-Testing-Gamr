@@ -13,6 +13,13 @@ public class MainMenu : MonoBehaviour
 	[SerializeField]
 	private GameObject customizationFirstButton;
 	
+	[SerializeField]
+	private GameObject scoreMenu;
+	
+	
+	[SerializeField]
+	private GameObject scrollScore;
+	
 	EventSystem eventSystem;
 	void Start() 
 	{
@@ -32,6 +39,13 @@ public class MainMenu : MonoBehaviour
 		eventSystem.SetSelectedGameObject(customizationFirstButton);
 		customizationMenu.SetActive(true);
 		customizationMenu.GetComponent<CustomizationMenu>().Reload();
+		gameObject.SetActive(false);
+	}
+	
+	public void Score() 
+	{
+		eventSystem.SetSelectedGameObject(scrollScore);
+		scoreMenu.SetActive(true);
 		gameObject.SetActive(false);
 	}
 	

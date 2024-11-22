@@ -311,6 +311,7 @@ MonoBehaviour:
   spawnEvents: []
   isBoss: 0
   teleportMap: {fileID: 0}
+  rewardPoints: 1000
 --- !u!114 &5422373132261353930
 MonoBehaviour:
   m_ObjectHideFlags: 0
