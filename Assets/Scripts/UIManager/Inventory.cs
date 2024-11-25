@@ -347,11 +347,17 @@ public class Inventory : MonoBehaviour
 			{
 				case 0:
 					selectionsInventory[0].GetComponent<Image>().color = selectionColors[1];
+					selectionsInventory[0].transform.Find("Tips")?.gameObject.SetActive(true);
+					
 					selectionsInventory[1].GetComponent<Image>().color = selectionColors[0];
+					selectionsInventory[1].transform.Find("Tips")?.gameObject.SetActive(false);
 					break;
 				case 1:
 					selectionsInventory[0].GetComponent<Image>().color = selectionColors[0];
+					selectionsInventory[0].transform.Find("Tips")?.gameObject.SetActive(false);
+					
 					selectionsInventory[1].GetComponent<Image>().color = selectionColors[1];
+					selectionsInventory[1].transform.Find("Tips")?.gameObject.SetActive(true);
 					break;
 			}
 
@@ -468,11 +474,17 @@ public class Inventory : MonoBehaviour
 			{
 				case 0:
 					selectionsEquipament[0].GetComponent<Image>().color = selectionColors[1];
+					selectionsEquipament[0].transform.Find("Tips")?.gameObject.SetActive(true);
+					
 					selectionsEquipament[1].GetComponent<Image>().color = selectionColors[0];
+					selectionsEquipament[1].transform.Find("Tips")?.gameObject.SetActive(false);
 					break;
 				case 1:
 					selectionsEquipament[0].GetComponent<Image>().color = selectionColors[0];
+					selectionsEquipament[0].transform.Find("Tips")?.gameObject.SetActive(false);
+					
 					selectionsEquipament[1].GetComponent<Image>().color = selectionColors[1];
+					selectionsEquipament[1].transform.Find("Tips")?.gameObject.SetActive(true);
 					break;
 			}
 
@@ -684,7 +696,7 @@ public class Inventory : MonoBehaviour
 			equipmentBarSlots[i].GetComponent<Image>().sprite = equipments[i].GetComponent<Image>().sprite;
 		}
 
-		if (!isActive && !isUseItem)
+		if (!isActive && !isUseItem && GameGlobals.uiStatus == "none")
 		{
 			if (Input.GetButtonDown("EquipamentBarRight") || scrollInput < 0f)
 			{
@@ -726,7 +738,7 @@ public class Inventory : MonoBehaviour
 
 		handWeapon.GetComponent<SpriteRenderer>().sprite = equipments[selectionEquipmentBar].GetComponent<Image>().sprite;
 		handConsumable.GetComponent<SpriteRenderer>().sprite = equipments[selectionEquipmentBar].GetComponent<Image>().sprite;
-		if (GameGlobals.lastInput != "touch")
+		if (GameGlobals.lastInput != "touch" && GameGlobals.uiStatus == "none")
 		{
 			if (Input.GetButtonDown("FireButton") || rightTriggerPulse)
 			{

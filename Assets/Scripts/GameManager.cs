@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 	{
 		Item item = itemManager.GetItemBySpriteName(spriteName);
 
-		if (item != null)
+		if (item != null && GameGlobals.uiStatus == "none")
 		{
 			if (item.consumable.healing != 0 || item.consumable.speed != 0)
 			{

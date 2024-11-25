@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-		if (!isDead)
+		if (!isDead && GameGlobals.uiStatus == "none")
 		{
 			if (GameGlobals.lastInput == "touch")
 			{

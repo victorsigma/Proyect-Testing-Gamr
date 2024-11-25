@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class DiviceDetector : MonoBehaviour
 {
-	// Start is called before the first frame update
 	void Start()
 	{
-
+		GameGlobals.lastInput = PlayerPrefs.GetString("lastInput");
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		float leftTriggerValue = Input.GetAxis("LeftTrigger");
@@ -62,6 +60,9 @@ public class DiviceDetector : MonoBehaviour
 		{
 			GameGlobals.lastInput = "joystick";
 		}
+		
+		
+		PlayerPrefs.SetString("lastInput", GameGlobals.lastInput);
 	}
 
 	bool DetectKeyboardInput()

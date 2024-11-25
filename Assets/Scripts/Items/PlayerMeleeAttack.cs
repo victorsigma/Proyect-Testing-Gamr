@@ -33,7 +33,8 @@ public class PlayerMeleeAttack : MonoBehaviour
 			// Aplica daño a cada enemigo detectado
 			foreach (Collider2D enemy in hitEnemies)
 			{
-				enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+				enemy.GetComponent<Enemy>()?.TakeDamage(attackDamage);
+				enemy.GetComponent<EnemyTutorial>()?.TakeDamage(attackDamage);
 			}
 		}
 	}
