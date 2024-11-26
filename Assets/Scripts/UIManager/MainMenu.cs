@@ -31,7 +31,15 @@ public class MainMenu : MonoBehaviour
 	
 	public void Play() 
 	{
-		GameManager.instance.LoadScene("MapTraslation");
+		if(PlayerPrefs.GetInt("tutorial") == 0) 
+		{
+			PlayerPrefs.SetInt("tutorial", 1);
+			GameManager.instance.LoadScene("Tutorial");
+		} else 
+		{
+			GameManager.instance.LoadScene("MapTraslation");
+		}
+		
 	}
 	
 	public void Custom() 

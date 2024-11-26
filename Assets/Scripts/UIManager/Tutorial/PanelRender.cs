@@ -6,7 +6,7 @@ public class PanelRender : MonoBehaviour
 {
 	[SerializeField]
 	private bool isRender = false;
-	
+
 	[SerializeField]
 	private GameObject panel;
 
@@ -14,24 +14,20 @@ public class PanelRender : MonoBehaviour
 	void Update()
 	{
 		PlayerDetectorAIBox playerDetector = GetComponent<PlayerDetectorAIBox>();
-		
-		if(playerDetector.PlayerDetected && !isRender) 
+
+		if (playerDetector.PlayerDetected && !isRender && !gameObject.CompareTag("Item"))
 		{
 			panel.SetActive(true);
 			isRender = true;
 		}
 	}
-	
+
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (collider.CompareTag("Player"))
-		
+		if (collider.CompareTag("Player") && gameObject.CompareTag("Item") && !isRender)
 		{
 			panel.SetActive(true);
-			if(gameObject.CompareTag("Item")) 
-			{
-				Destroy(gameObject);
-			}
+			Destroy(gameObject);
 			isRender = true;
 		}
 	}

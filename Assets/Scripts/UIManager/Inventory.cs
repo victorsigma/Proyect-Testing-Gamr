@@ -738,9 +738,9 @@ public class Inventory : MonoBehaviour
 
 		handWeapon.GetComponent<SpriteRenderer>().sprite = equipments[selectionEquipmentBar].GetComponent<Image>().sprite;
 		handConsumable.GetComponent<SpriteRenderer>().sprite = equipments[selectionEquipmentBar].GetComponent<Image>().sprite;
-		if (GameGlobals.lastInput != "touch" && GameGlobals.uiStatus == "none")
+		if (GameGlobals.lastInput != "touch" && GameGlobals.uiStatus == "none" && !isActive)
 		{
-			if (Input.GetButtonDown("FireButton") || rightTriggerPulse)
+			if (Input.GetButtonDown("FireButton") || rightTriggerPulse || Input.GetButton("RightTrigger"))
 			{
 				UseItem();
 			}

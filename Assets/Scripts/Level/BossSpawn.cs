@@ -29,7 +29,6 @@ public class BossSpawn : MonoBehaviour
 	void Start()
 	{
 		AudioManager.instance.PlayMusic(levelSound);
-		gameObject.GetComponent<OffscreenIndicator>().SetIndicatorActive(false);
 
 		// Inicializa la barra de progreso
 		Slider slider = progressBar.GetComponent<Slider>();
@@ -88,7 +87,6 @@ public class BossSpawn : MonoBehaviour
 	void ExecuteEvent()
 	{
 		isSpawningEnd = true;
-		gameObject.GetComponent<OffscreenIndicator>().SetIndicatorActive(true);
 		progressBar.SetActive(false);
 		Instantiate(boss, transform.position, Quaternion.identity);
 		AudioManager.instance.PlayMusic(bossSound);
