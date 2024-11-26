@@ -168,7 +168,6 @@ public class PlayerController : MonoBehaviour
 	public void AddPoints(int points)
 	{
 		score += points;
-		PlayerPrefs.SetInt("score", score);
 	}
 
 	public int GetScore()
@@ -185,6 +184,7 @@ public class PlayerController : MonoBehaviour
 		}
 		else if (teleport.GetComponent<TeleportMap>() != null)
 		{
+			PlayerPrefs.SetInt("score", score);
 			GetComponent<Inventory>().SaveInventory();
 			teleport.GetComponent<TeleportMap>().TeleportTo();
 		}

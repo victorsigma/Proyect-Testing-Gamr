@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e10f021774ebbb4d8a267f347e0b1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
+  moveSpeed: 2
   player: {fileID: 2611703680262557593, guid: d838e2a57258b9f48a2b468f102f681e, type: 3}
 --- !u!114 &785420630276917533
 MonoBehaviour:
@@ -251,10 +251,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 15
+  maxLife: 10
+  elapsedTime: 0
+  playerTransform: {fileID: 0}
   lootTable: {fileID: 11400000, guid: 5e56cd8a5d1652145be57e6257bf9683, type: 2}
   minDrops: 1
   maxDrops: 2
   sound: DamageMeet
+  spawnEvents: []
+  isBoss: 0
+  teleportMap: {fileID: 0}
+  rewardPoints: 1000
 --- !u!114 &7539764675896474002
 MonoBehaviour:
   m_ObjectHideFlags: 0

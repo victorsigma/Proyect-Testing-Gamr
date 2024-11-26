@@ -304,7 +304,7 @@ MonoBehaviour:
   maxLife: 10
   elapsedTime: 0
   playerTransform: {fileID: 0}
-  lootTable: {fileID: 11400000, guid: 4aabe590c5e07b449a80c47148646244, type: 2}
+  lootTable: {fileID: 11400000, guid: 5536a6ab4d3d97a4682fd4a0c73ccb43, type: 2}
   minDrops: 1
   maxDrops: 2
   sound: DamageMetal

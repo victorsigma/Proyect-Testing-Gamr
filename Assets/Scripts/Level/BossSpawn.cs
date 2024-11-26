@@ -89,6 +89,7 @@ public class BossSpawn : MonoBehaviour
 	{
 		isSpawningEnd = true;
 		gameObject.GetComponent<OffscreenIndicator>().SetIndicatorActive(true);
+		progressBar.SetActive(false);
 		Instantiate(boss, transform.position, Quaternion.identity);
 		AudioManager.instance.PlayMusic(bossSound);
 

@@ -237,10 +237,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 8
-  lootTable: {fileID: 11400000, guid: 4aabe590c5e07b449a80c47148646244, type: 2}
+  maxLife: 10
+  elapsedTime: 0
+  playerTransform: {fileID: 0}
+  lootTable: {fileID: 11400000, guid: 667313c65c34cea4dae85c2e53fbc2da, type: 2}
   minDrops: 1
   maxDrops: 2
   sound: DamageMeet
+  spawnEvents: []
+  isBoss: 0
+  teleportMap: {fileID: 0}
+  rewardPoints: 1000
 --- !u!114 &8140245077283628264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,3 +280,4 @@ MonoBehaviour:
   bulletSpeed: 10
   shootDelay: 2
   shootPosition: {x: 0, y: 0.2, z: 0}
+  shootSound: Arrow

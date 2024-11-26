@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27a353355f5320e45a9ff999b2cd6edc, type: 3}
-  m_Name: Golbin 3
+  m_Name: Goblin 2
   m_EditorClassIdentifier: 
   lootItems:
-  - itemPrefab: {fileID: 1833319593116750254, guid: d320da09de1a1d045a31e5cc0ae388f4, type: 3}
-    dropChance: 20
-  - itemPrefab: {fileID: 6224318753668327548, guid: 4c97990343e721245844c177d4492a91, type: 3}
-    dropChance: 20
+  - itemPrefab: {fileID: 2326676448356502355, guid: 8bb2eecefe4e30347a1987644342685e, type: 3}
+    dropChance: 30
+  - itemPrefab: {fileID: 8938483152877380051, guid: 698cc72bdd0f532499a49041ba507f59, type: 3}
+    dropChance: 30
+  - itemPrefab: {fileID: 2237138930405850757, guid: 220d7f9ae7926c242b0649eee3697a2d, type: 3}
+    dropChance: 10

@@ -5,6 +5,9 @@ using UnityEngine;
 public class TeleportMap : MonoBehaviour
 {
 	private Animator animator; // Componente Animator para manejar las animaciones
+
+	[SerializeField]
+	private string levelName = "MapTraslation";
 	
 	// Start is called before the first frame update
 	void Start()
@@ -20,6 +23,6 @@ public class TeleportMap : MonoBehaviour
 	
 	public void TeleportToEnd() 
 	{
-		GameManager.instance.LoadScene("MapTraslation");
+		GameManager.instance.LoadScene(levelName);
 	}
 }

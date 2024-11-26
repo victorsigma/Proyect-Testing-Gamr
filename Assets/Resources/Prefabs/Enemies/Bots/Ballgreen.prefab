@@ -247,13 +247,14 @@ MonoBehaviour:
   maxLife: 10
   elapsedTime: 0
   playerTransform: {fileID: 0}
-  lootTable: {fileID: 11400000, guid: 4aabe590c5e07b449a80c47148646244, type: 2}
+  lootTable: {fileID: 11400000, guid: 82ed0895f9bd6e645aa81777b2f27bff, type: 2}
   minDrops: 1
   maxDrops: 2
   sound: DamageMetal
   spawnEvents: []
   isBoss: 0
   teleportMap: {fileID: 0}
+  rewardPoints: 1000
 --- !u!114 &5422373132261353930
 MonoBehaviour:
   m_ObjectHideFlags: 0

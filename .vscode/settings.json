@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Proyect Testing.sln"
+    "dotnet.defaultSolution": "Proyect-Testing-Gamr.sln"
 }

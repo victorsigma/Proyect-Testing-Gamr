@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemEntity : MonoBehaviour
 {
 	// Tiempo en segundos antes de que el objeto se destruya automáticamente
+	[SerializeField]
 	private float lifeTime = 12f;
 	public bool isPickedUp = false;
 
