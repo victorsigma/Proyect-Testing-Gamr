@@ -410,7 +410,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 59a88207f35026c42802144b9c015b45, type: 2}
   - {fileID: 11400000, guid: 4b62e2ada85cd50428cf7ba3816e9efe, type: 2}
   isBoss: 1
-  teleportMap: {fileID: 8079435056122181835, guid: dba6b47342d14c744a45bb30712d3b53, type: 3}
+  teleportMap: {fileID: 8079435056122181835, guid: eacf92b5b9e9a6e4daa77aff3000b801, type: 3}
   rewardPoints: 6000
 --- !u!114 &6388508438193404824
 MonoBehaviour:

@@ -178,15 +178,18 @@ public class PlayerController : MonoBehaviour
 	public void UseTeleport()
 	{
 
-		if (teleport.GetComponent<Teleport>() != null)
+		if (teleport != null)
 		{
-			teleport.GetComponent<Teleport>().TeleportTo();
-		}
-		else if (teleport.GetComponent<TeleportMap>() != null)
-		{
-			PlayerPrefs.SetInt("score", score);
-			GetComponent<Inventory>().SaveInventory();
-			teleport.GetComponent<TeleportMap>().TeleportTo();
+			if (teleport?.GetComponent<Teleport>() != null)
+			{
+				teleport?.GetComponent<Teleport>()?.TeleportTo();
+			}
+			else if (teleport?.GetComponent<TeleportMap>() != null)
+			{
+				PlayerPrefs.SetInt("score", score);
+				GetComponent<Inventory>()?.SaveInventory();
+				teleport.GetComponent<TeleportMap>()?.TeleportTo();
+			}
 		}
 	}
 

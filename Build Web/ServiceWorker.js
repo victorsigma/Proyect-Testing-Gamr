@@ -1,9 +1,9 @@
-const cacheName = "DefaultCompany-Proyect Testing-1.0";
+const cacheName = "EnigmaGames-Chrono Quest-1.0";
 const contentToCache = [
     "Build/Build Web.loader.js",
-    "Build/Build Web.framework.js.br",
-    "Build/Build Web.data.br",
-    "Build/Build Web.wasm.br",
+    "Build/Build Web.framework.js",
+    "Build/Build Web.data",
+    "Build/Build Web.wasm",
     "TemplateData/style.css"
 
 ];
